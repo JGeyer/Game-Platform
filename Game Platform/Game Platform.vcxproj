@@ -113,6 +113,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\lib\VS 11\Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>Box2D.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
@@ -168,9 +169,14 @@
   <ItemGroup>
     <ClCompile Include="Basic.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Movement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basic.h" />
+    <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Movement.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="WindowHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\box.png" />
