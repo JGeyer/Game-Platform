@@ -111,7 +111,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>.\lib\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\lib\VS 11\Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>Box2D.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
@@ -158,7 +158,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>.\lib\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\lib\VS 11\Release</AdditionalLibraryDirectories>
       <AdditionalDependencies>Box2D.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
