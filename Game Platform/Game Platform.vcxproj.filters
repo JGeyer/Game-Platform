@@ -22,8 +22,35 @@
     <Filter Include="Resource Files\Assets\Textures">
       <UniqueIdentifier>{f40522c0-20de-4ec4-b1c1-af5acfe6b209}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameHandlers">
+    <Filter Include="Manager Files">
       <UniqueIdentifier>{02d58ff6-b7e4-401c-9025-fc1a278df807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager Files\Header">
+      <UniqueIdentifier>{c5849bbe-2d0a-4aa4-a5f4-2ef83e99eef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager Files\Source">
+      <UniqueIdentifier>{0dca476b-25fc-4f78-92d8-ac7db01049dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{bf2723c6-c678-4a7f-8861-179c6aabaa90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files\Inanimate">
+      <UniqueIdentifier>{05b8e403-1be9-44f5-b2d9-a736fb01345c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files\Inanimate\Header">
+      <UniqueIdentifier>{4c009bf8-4574-4c41-8cfa-8e624ebd9028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files\Inanimate\Source">
+      <UniqueIdentifier>{75a6c337-22a2-4068-a331-ae45809b71f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files\Animate">
+      <UniqueIdentifier>{8a5ad440-5f3f-4e8f-b220-918dad534595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files\Animate\Header">
+      <UniqueIdentifier>{ed184ecd-76bc-48c9-ac5b-b67c16fb5a90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files\Animate\Source">
+      <UniqueIdentifier>{ca337c94-6cd2-44aa-933e-da3f7569e947}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +63,18 @@
     <ClCompile Include="Movement.cpp">
       <Filter>Test Area</Filter>
     </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Manager Files\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object Files\Inanimate\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Object Files\Inanimate\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Object Files\Inanimate\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basic.h">
@@ -44,14 +83,17 @@
     <ClInclude Include="Movement.h">
       <Filter>Test Area</Filter>
     </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Manager Files\Header</Filter>
+    </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>Header Files</Filter>
+      <Filter>Object Files\Inanimate\Header</Filter>
     </ClInclude>
-    <ClInclude Include="WindowHandler.h">
-      <Filter>GameHandlers</Filter>
+    <ClInclude Include="Box.h">
+      <Filter>Object Files\Inanimate\Header</Filter>
     </ClInclude>
-    <ClInclude Include="InputHandler.h">
-      <Filter>GameHandlers</Filter>
+    <ClInclude Include="Circle.h">
+      <Filter>Object Files\Inanimate\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
