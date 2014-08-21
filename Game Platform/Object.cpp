@@ -2,6 +2,7 @@
 
 Object::Object(InputManager &inputManager) {
 	isDead = false;
+	size = b2Vec2_zero;
 	bodyDef = b2BodyDef();
 	fixtureDef = b2FixtureDef();
 	this->inputManager = inputManager;
@@ -14,6 +15,7 @@ Object::~Object() {
 void Object::Initialize(b2World& world, b2BodyType type, b2Vec2 position,
 						b2Vec2 size, float density, float friction) {
 	bodyDef.position = position;
+	this->size = size;
 	bodyDef.type = type;
 	body = world.CreateBody(&bodyDef);
 	fixtureDef.density = density;

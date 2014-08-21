@@ -1,35 +1,10 @@
 #include "Movement.h"
 
-Object Movement::CreateGround(InputManager inputManager, b2World& world, sf::Texture texture, b2Vec2 position) {
-	Box ground = Box(inputManager);
-	ground.Initialize(world, b2_staticBody, b2Vec2(position.x / SCALE, position.y / SCALE), b2Vec2(800.0f, 16.0f), 0.0f, 0.2f);
-	ground.LoadContent(texture, b2Vec2(400.0f, 8.0f));
-	objects.push_back(ground);
-	return ground;
-}
-
-Object Movement::CreateBox(InputManager inputManager, b2World& world, sf::Texture texture, b2Vec2 position) {
-	Box box = Box(inputManager);
-	box.Initialize(world, b2_dynamicBody, b2Vec2(position.x / SCALE, position.y / SCALE), b2Vec2(32.0f, 32.0f), 1.0f, 0.7f);
-	box.LoadContent(texture, b2Vec2(16.0f, 16.0f));
-	objects.push_back(box);
-	return box;
-}
-
-Object Movement::CreateCircle(InputManager inputManager, b2World& world, sf::Texture texture, b2Vec2 position) {
-	Circle circle = Circle(inputManager);
-	circle.Initialize(world, b2_dynamicBody, b2Vec2(position.x / SCALE, position.y / SCALE), 0.5f, 1.0f, 0.7f);
-	circle.LoadContent(texture, b2Vec2(16.0f, 16.0f));
-	objects.push_back(circle);
-	return circle;
-}
-
-Object Movement::CreateCharacter(InputManager inputManager, b2World& world, sf::Texture texture, b2Vec2 position) {
-	Box character = Box(inputManager);
-	character.Initialize(world, b2_dynamicBody, b2Vec2(position.x / SCALE, position.y / SCALE), b2Vec2(32.0f, 32.0f), 1.0f, 3.0f);
-	character.LoadContent(texture, b2Vec2(16.0f, 16.0f));
-	objects.push_back(character);
-	return character;
+Player Movement::CreatePlayer(InputManager inputManager, b2World& world, sf::Texture texture, b2Vec2 position) {
+	Player player = Player(inputManager);
+	player.Initialize(world, b2Vec2(position.x / SCALE, position.y / SCALE));
+	player.LoadContent(texture, b2Vec2(40.0f, 40.0f));
+	return player;
 }
 
 bool Movement::MovementTest() {
@@ -37,66 +12,73 @@ bool Movement::MovementTest() {
 	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Window");
 	window.setFramerateLimit(60);
 
-	/** Texture Preparation **/
-	sf::Texture groundTexture;
-	sf::Texture boxTexture;
-	sf::Texture circleTexture;
-	groundTexture.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/ground.png");
-	boxTexture.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/box.png");
-	circleTexture.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/circle.png");
-
 	/** World Preparation **/
 	b2Vec2 gravity(0.0f, 9.8f);
 	b2World world(gravity);
-	CreateGround(inputManager, world, groundTexture, b2Vec2(400.0f, 500.0f));
-	CreateBox(inputManager, world, boxTexture, b2Vec2(400.0f, 300.0f));
-	CreateBox(inputManager, world, boxTexture, b2Vec2(100.0f, 100.0f));
-	CreateCircle(inputManager, world, circleTexture, b2Vec2(310.0f, 400.0f));
-	CreateBox(inputManager, world, boxTexture, b2Vec2(200.0f, 250.0f));
 
-	Object character = CreateCharacter(inputManager, world, boxTexture, b2Vec2(600.0f, 400.0f));
+	/** Read .lf files for load data **/
+	FileManager file;
+	std::vector<std::vector<std::string>> attributes;
+	std::vector<std::vector<std::string>> contents;
+	std::vector<std::vector<std::string>> textures;
+	std::vector<std::vector<std::string>> objs;
+	std::string path;
+	file.LoadContent("./Assets/LoadFiles/TestLoad.lf", attributes, contents);
+	for (int i = 0; i < attributes.size(); i++) {
+		if (attributes[i][0] == "path") {
+			path = contents[i][0];
+		}
+		if (attributes[i][0] == "texture") {
+			textures.push_back(contents[i]);
+		}
+		if (attributes[i][0] == "object") {
+			objs.push_back(contents[i]);
+		}
+	}
 
+	/** Texture Preparation **/
+	TextureManager::Instance().setTextureLibrary(path, textures);
+	sf::Texture groundLargeTexture = TextureManager::Instance().getTexture("groundL");
+	sf::Texture groundMediumTexture = TextureManager::Instance().getTexture("groundM");
+	sf::Texture groundSmallTexture = TextureManager::Instance().getTexture("groundS");
+	sf::Texture boxTexture = TextureManager::Instance().getTexture("box");
+	sf::Texture circleTexture = TextureManager::Instance().getTexture("circle");
+	sf::Texture playerTexture = TextureManager::Instance().getTexture("character");
+
+	/** Body Creation Methods **/
+	ObjectManager::Instance().setObjectLibrary(objs);
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "groundL1", groundLargeTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "groundM1", groundMediumTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "groundS1", groundSmallTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "groundS2", groundSmallTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "box1", boxTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "box2", boxTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "box3", boxTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "box4", boxTexture));
+	objects.push_back(ObjectManager::Instance().createObject(inputManager, world, "circle1", circleTexture));
+
+	/** Player Creation **/
+	Player player = CreatePlayer(inputManager, world, playerTexture, b2Vec2(600.0f, 400.0f));
+
+	/** Game Loop **/
 	while (window.isOpen()) {
-		/* When user left-mouse click, add box into world */
 		sf::Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				window.close();
 			}
-			for (std::list<Object>::iterator it = objects.begin(); it != objects.end(); it++) {
+			for (std::vector<Object>::iterator it = objects.begin(); it != objects.end(); it++) {
 				it->Update(event);
 			}
-			inputManager.Update(event);
-			if (inputManager.KeyPressed(sf::Keyboard::Key::Left)) {
-				b2Vec2 vel = character.body->GetLinearVelocity();
-				vel.x = -3.0f;
-				character.body->SetAwake(true);
-				character.body->SetLinearVelocity(vel);
-			}
-			if (inputManager.KeyPressed(sf::Keyboard::Key::Right)) {
-				b2Vec2 vel = character.body->GetLinearVelocity();
-				vel.x = 3.0f;
-				character.body->SetAwake(true);
-				character.body->SetLinearVelocity(vel);
-			}
-			if (inputManager.KeyPressed(sf::Keyboard::Key::Space)) {
-				float impulse = character.body->GetMass() * 5;
-				character.body->ApplyLinearImpulse(b2Vec2(0, -impulse), character.body->GetWorldCenter(), true);
-			}
+			player.Update(event);
 		}
-
-		/* Simulate world */
 		world.Step(TIMESTEP, 8, 3);
-		
 		window.clear(sf::Color::White);
-
-		for (std::list<Object>::iterator it = objects.begin(); it != objects.end(); it++) {
+		for (std::vector<Object>::iterator it = objects.begin(); it != objects.end(); it++) {
 			it->Draw(window);
 		}
-		//objects.remove_if(&Object::IsDead);
-
+		player.Draw(window);
 		window.display();
 	}
-
 	return true;
 }

@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -52,6 +48,9 @@
     <Filter Include="Object Files\Animate\Source">
       <UniqueIdentifier>{ca337c94-6cd2-44aa-933e-da3f7569e947}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Assets\LoadFiles">
+      <UniqueIdentifier>{a8a04148-9207-43ab-a70b-28222a56f6c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,6 +74,21 @@
     <ClCompile Include="Circle.cpp">
       <Filter>Object Files\Inanimate\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Object Files\Animate\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Convert.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Manager Files\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Manager Files\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Manager Files\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basic.h">
@@ -95,6 +109,21 @@
     <ClInclude Include="Circle.h">
       <Filter>Object Files\Inanimate\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Object Files\Animate\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Convert.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Manager Files\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Manager Files\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Manager Files\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\box.png">
@@ -103,5 +132,10 @@
     <Image Include="Assets\Textures\ground.png">
       <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Loadfiles\TestLoad.lf">
+      <Filter>Resource Files\Assets\LoadFiles</Filter>
+    </Text>
   </ItemGroup>
 </Project>

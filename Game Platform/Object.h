@@ -19,6 +19,7 @@ class Object {
 
 	protected:
 		bool isDead;
+		b2Vec2 size;
 		sf::Sprite sprite;
 		sf::Texture texture;
 		b2Vec2 origin;
