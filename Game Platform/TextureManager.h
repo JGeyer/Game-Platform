@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <map>
 #include <vector>
-#include <iostream>
 
 class TextureManager {
 	public:

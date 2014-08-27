@@ -3,21 +3,24 @@
 
 #include <Box2D/Box2D.h>
 #include <SFML/Graphics.hpp>
+#include "ContactListener.h"
 #include "Convert.h"
 #include "InputManager.h"
 
 class Player {
 	public:
-		Player(InputManager &inputManager);
+		Player(InputManager &inputManager, ContactListener *contactListener);
 		~Player();
 		virtual void Initialize(b2World& world, b2Vec2 position);
 		void LoadContent(sf::Texture texture, b2Vec2 origin);
 		void UnloadContent();
 		void Update(sf::Event event);
 		void Draw(sf::RenderWindow &window);
+		b2ContactListener* getContactListener();
 		b2Body* body;
 
 	protected:
+		int c;
 		bool isDead;
 		sf::Sprite sprite;
 		sf::Texture texture;
@@ -26,6 +29,7 @@ class Player {
 		b2PolygonShape shapeLeft;
 		b2PolygonShape shapeRight;
 		b2FixtureDef fixtureDef;
+		ContactListener* contactListener;
 
 	private:
 		InputManager inputManager;

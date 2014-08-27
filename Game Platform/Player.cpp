@@ -1,12 +1,14 @@
 #include "Player.h"
 
-Player::Player(InputManager &inputManager) {
+Player::Player(InputManager &inputManager, ContactListener *contactListener) {
 	isDead = false;
 	bodyDef = b2BodyDef();
 	shapeLeft = b2PolygonShape();
 	shapeRight = b2PolygonShape();
 	fixtureDef = b2FixtureDef();
 	this->inputManager = inputManager;
+	this->contactListener = contactListener;
+	c= 0;
 }
 
 Player::~Player() {
@@ -16,7 +18,7 @@ Player::~Player() {
 void Player::Initialize(b2World& world, b2Vec2 position) {
 	bodyDef.position = position;
 	bodyDef.type = b2_dynamicBody;
-	bodyDef.fixedRotation = false;
+	bodyDef.fixedRotation = true;
 	body = world.CreateBody(&bodyDef);
 
 	Convert convert;
@@ -52,12 +54,21 @@ void Player::Initialize(b2World& world, b2Vec2 position) {
 	vsRight[5].Set(vs5.x, vs5.y);
 	shapeRight.Set(vsRight, 6);
 
+	b2PolygonShape footSensor;
+	footSensor.SetAsBox(0.033f * 30.0f, 0.033f * 3.0f, b2Vec2(0, 1.33f), 0);
+	b2FixtureDef footFixtureDef;
+	footFixtureDef.density = 1;
+	footFixtureDef.shape = &footSensor;
+	footFixtureDef.isSensor = true;
+
 	fixtureDef.density = 1.0f;
 	fixtureDef.friction = 0.2f;
 	fixtureDef.shape = &shapeLeft;
 	body->CreateFixture(&fixtureDef);
 	fixtureDef.shape = &shapeRight;
 	body->CreateFixture(&fixtureDef);
+	b2Fixture* footSensorFixture = body->CreateFixture(&footFixtureDef);
+	footSensorFixture->SetUserData((void*)3);
 }
 
 void Player::LoadContent(sf::Texture texture, b2Vec2 origin) {
@@ -69,25 +80,38 @@ void Player::UnloadContent() {
 	texture.~Texture();
 }
 
+#include <iostream>
+
 void Player::Update(sf::Event event) {
 	inputManager.Update(event);
-	if (inputManager.KeyPressed(sf::Keyboard::Key::Left)) {
-		sprite.setScale(-1, 1);
-		b2Vec2 vel = body->GetLinearVelocity();
-		vel.x = -3.0f;
-		body->SetAwake(true);
-		body->SetLinearVelocity(vel);
-	}
-	if (inputManager.KeyPressed(sf::Keyboard::Key::Right)) {
-		sprite.setScale(1, 1);
-		b2Vec2 vel = body->GetLinearVelocity();
-		vel.x = 3.0f;
-		body->SetAwake(true);
-		body->SetLinearVelocity(vel);
-	}
-	if (inputManager.KeyPressed(sf::Keyboard::Key::Space)) {
-		float impulse = body->GetMass() * 5;
-		body->ApplyLinearImpulse(b2Vec2(0, -impulse), body->GetWorldCenter(), true);
+	int numFootContacts = contactListener->numFootContacts;
+
+	std::vector<sf::Keyboard::Key> movementKeys;
+	movementKeys.push_back(sf::Keyboard::Key::Left);
+	movementKeys.push_back(sf::Keyboard::Key::Right);
+	movementKeys.push_back(sf::Keyboard::Key::Space);
+	if (inputManager.KeyPressed(movementKeys) || inputManager.KeyDown(movementKeys)) {
+		if (inputManager.KeyPressed(sf::Keyboard::Key::Space) || inputManager.KeyDown(sf::Keyboard::Key::Space)) {
+			if (numFootContacts > 0) {
+				body->ApplyLinearImpulse(b2Vec2(0, -(body->GetMass() * 5)), body->GetWorldCenter(), true);
+			}
+		}
+		if (inputManager.KeyPressed(sf::Keyboard::Key::Left) || inputManager.KeyDown(sf::Keyboard::Key::Left)) {
+			sprite.setScale(-1, 1);
+			b2Vec2 vel = body->GetLinearVelocity();
+			vel.x = -4.0f;
+			body->SetAwake(true);
+			body->SetLinearVelocity(vel);
+			c++;
+			std::cout << c << std::endl;
+		}
+		if (inputManager.KeyPressed(sf::Keyboard::Key::Right) || inputManager.KeyDown(sf::Keyboard::Key::Right)) {
+			sprite.setScale(1, 1);
+			b2Vec2 vel = body->GetLinearVelocity();
+			vel.x = 4.0f;
+			body->SetAwake(true);
+			body->SetLinearVelocity(vel);
+		}
 	}
 }
 
@@ -97,4 +121,8 @@ void Player::Draw(sf::RenderWindow &window) {
 	sprite.setPosition(body->GetPosition().x * 30.0f,  body->GetPosition().y * 30.0f);
 	sprite.setRotation(body->GetAngle() * 180 / b2_pi);
 	window.draw(sprite);
+}
+
+b2ContactListener* Player::getContactListener() {
+	return contactListener;
 }

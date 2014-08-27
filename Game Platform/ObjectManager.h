@@ -3,7 +3,6 @@
 #include <map>
 #include <string>
 #include <vector>
-#include <iostream>
 #include "Box.h"
 #include "Circle.h"
 #include "Player.h"

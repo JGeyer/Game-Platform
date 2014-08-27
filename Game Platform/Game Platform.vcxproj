@@ -168,6 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Basic.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Circle.cpp" />
@@ -182,6 +183,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basic.h" />
+    <ClInclude Include="ContactListener.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Circle.h" />
@@ -199,6 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Loadfiles\TestLoad.lf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\LoadFiles\TestLevel1.lf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

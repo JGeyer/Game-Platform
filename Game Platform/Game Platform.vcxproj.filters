@@ -89,6 +89,9 @@
     <ClCompile Include="ObjectManager.cpp">
       <Filter>Manager Files\Source</Filter>
     </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Manager Files\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basic.h">
@@ -124,6 +127,12 @@
     <ClInclude Include="ObjectManager.h">
       <Filter>Manager Files\Header</Filter>
     </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Manager Files\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactListener.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\box.png">
@@ -137,5 +146,10 @@
     <Text Include="Assets\Loadfiles\TestLoad.lf">
       <Filter>Resource Files\Assets\LoadFiles</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\LoadFiles\TestLevel1.lf">
+      <Filter>Resource Files\Assets\LoadFiles</Filter>
+    </None>
   </ItemGroup>
 </Project>

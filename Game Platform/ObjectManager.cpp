@@ -9,9 +9,6 @@ void ObjectManager::setObjectLibrary(std::vector<std::vector<std::string>> objec
 	for (int i = 0; i < objects.size(); i++) {
 		objectLibrary.insert(std::pair<std::string, std::vector<std::string>>(objects[i][0], objects[i]));
 	}
-	for (std::map<std::string, std::vector<std::string>>::iterator itt = objectLibrary.begin(); itt != objectLibrary.end(); itt++) {
-		//std::cout << bodyLibrary[itt->first] << std::endl;
-	}
 }
 
 Object ObjectManager::createObject(InputManager inputManager, b2World &world, std::string id, sf::Texture texture) {
