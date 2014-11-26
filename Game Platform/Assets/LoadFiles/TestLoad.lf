@@ -7,7 +7,7 @@ Load=[texture]
 [groundS][groundS.png]
 [box][box.png]
 [circle][circle.gif]
-[character][character.gif]
+[character][RobotCharacter.png]
 
 Load=[object]
 [groundL1][box][400.0f][500.0f][800.0f][16.0f][400.0f][8.0f][0.0f][0.2f][static]

@@ -5,16 +5,20 @@ ObjectManager &ObjectManager::Instance() {
 	return instance;
 }
 
-void ObjectManager::setObjectLibrary(std::vector<std::vector<std::string>> objects) {
+void ObjectManager::LoadContent(std::vector<std::vector<std::string>> objects) {
 	for (int i = 0; i < objects.size(); i++) {
 		objectLibrary.insert(std::pair<std::string, std::vector<std::string>>(objects[i][0], objects[i]));
 	}
 }
 
-Object ObjectManager::createObject(InputManager inputManager, b2World &world, std::string id, sf::Texture texture) {
+void ObjectManager::UnloadContent() {
+	objectLibrary.clear();
+}
+
+Object* ObjectManager::createObject(b2World &world, std::string id, sf::Texture texture) {
 	std::vector<std::string> contents = objectLibrary.find(id)->second;
 	if (contents[1].compare("box") == 0) {
-		Box box = Box(inputManager);
+		Box* box = new Box();
 		b2BodyType type;
 		if (contents[10].compare("static") == 0) {
 			type = b2_staticBody;
@@ -22,13 +26,13 @@ Object ObjectManager::createObject(InputManager inputManager, b2World &world, st
 		else { //contents[10].compare("dynamic") == 0
 			type = b2_dynamicBody;
 		}
-		box.Initialize(world, type, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f), 
+		box->Initialize(world, type, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f), 
 					   b2Vec2(std::stof(contents[4]), std::stof(contents[5])), std::stof(contents[8]), std::stof(contents[9]));
-		box.LoadContent(texture, b2Vec2(std::stof(contents[6]), std::stof(contents[7])));
+		box->LoadContent(texture, b2Vec2(std::stof(contents[6]), std::stof(contents[7])));
 		return box;
 	}
-	else if (contents[1].compare("circle") == 0) {
-		Circle circle = Circle(inputManager);
+	if (contents[1].compare("circle") == 0) {
+		Circle* circle = new Circle();
 		b2BodyType type;
 		if (contents[9].compare("static") == 0) {
 			type = b2_staticBody;
@@ -36,20 +40,11 @@ Object ObjectManager::createObject(InputManager inputManager, b2World &world, st
 		else { //contents[9].compare("dynamic") == 0
 			type = b2_dynamicBody;
 		}
-		circle.Initialize(world, type, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f),
+		circle->Initialize(world, type, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f),
 						  std::stof(contents[4]), std::stof(contents[7]), std::stof(contents[8]));
-		circle.LoadContent(texture, b2Vec2(std::stof(contents[5]), std::stof(contents[6])));
+		circle->LoadContent(texture, b2Vec2(std::stof(contents[5]), std::stof(contents[6])));
 		return circle;
 	}
-	else {
-		// Error, do nothing
-	}
-}
-
-std::vector<Object> ObjectManager::createObjects(InputManager inputManager, b2World &world, std::vector<std::string> ids, sf::Texture texture) {
-	std::vector<Object> objects;
-	for (std::vector<std::string>::iterator it = ids.begin(); it != ids.end(); it++) {
-		objects.push_back(createObject(inputManager, world, *it, texture));
-	}
-	return objects;
+	//TODO: Proper handle here
+	return NULL;
 }

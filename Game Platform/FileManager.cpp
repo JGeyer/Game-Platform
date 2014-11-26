@@ -1,7 +1,7 @@
 #include "FileManager.h"
 
 FileManager::FileManager() {
-
+	state = NONE;
 }
 
 FileManager::~FileManager() {
@@ -49,6 +49,6 @@ void FileManager::LoadContent(const char* filename,
 		}
 	}
 	else {
-
+		//todo: else case
 	}
 }

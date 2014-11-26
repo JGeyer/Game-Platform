@@ -1,11 +1,8 @@
 #include "Box.h"
 
-Box::Box(InputManager &inputManager) : Object(inputManager) {
+Box::Box() : Object() {
 	shape = b2PolygonShape();
-}
-
-Box::~Box() {
-	Object::~Object();
+	type = ObjectData::object_type::IDLE;
 }
 
 void Box::Initialize(b2World& world, b2BodyType type, b2Vec2 position,
@@ -18,4 +15,15 @@ void Box::Initialize(b2World& world, b2BodyType type, b2Vec2 position,
 	fixtureDef.friction = friction;
 	fixtureDef.shape = &shape;
 	body->CreateFixture(&fixtureDef);
+
+	b2Fixture* objectSensorFixture = body->CreateFixture(&fixtureDef);
+	ContactUserData* cud = new ContactUserData();
+	if (type == b2_dynamicBody) {
+		cud->type = ContactUserData::Type::ANIMATE;
+	}
+	else {
+		cud->type = ContactUserData::Type::INANIMATE;
+	}
+	cud->data = this;
+	objectSensorFixture->SetUserData(cud);
 }

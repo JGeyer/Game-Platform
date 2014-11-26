@@ -1,33 +1,19 @@
-#ifndef OBJECT_H
-#define OBJECT_H
+#pragma once
 
 #include <Box2D/Box2D.h>
 #include <SFML/Graphics.hpp>
-#include "InputManager.h"
+#include "Cell.h"
+#include "ObjectData.h"
 
-class Object {
+class Object : public Cell {
 	public:
-		Object(InputManager &inputManager);
-		~Object();
+		Object();
 		virtual void Initialize(b2World& world, b2BodyType type, b2Vec2 position, 
 								b2Vec2 size, float density, float friction);
-		void LoadContent(sf::Texture texture, b2Vec2 origin);
-		void UnloadContent();
-		void Update(sf::Event event);
-		void Draw(sf::RenderWindow &window);
-		b2Body* body;
+
+		ObjectData::object_type GetType();
+		void SetType(ObjectData::object_type type);
 
 	protected:
-		bool isDead;
-		b2Vec2 size;
-		sf::Sprite sprite;
-		sf::Texture texture;
-		b2Vec2 origin;
-		b2BodyDef bodyDef;
-		b2FixtureDef fixtureDef;
-
-	private:
-		InputManager inputManager;
+		ObjectData::object_type type;
 };
-
-#endif

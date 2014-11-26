@@ -5,16 +5,13 @@ TextureManager &TextureManager::Instance() {
 	return instance;
 }
 
-void TextureManager::setTextureLibrary(std::string path, std::vector<std::vector<std::string>> textures) {
+void TextureManager::LoadContent(std::string path, std::vector<std::vector<std::string>> textures) {
 	for (int i = 0; i < textures.size(); i++) {
 		textureLibrary.insert(std::pair<std::string, std::string>(textures[i][0], path + textures[i][1]));
 	}
-	for (std::map<std::string, std::string>::iterator itt = textureLibrary.begin(); itt != textureLibrary.end(); itt++) {
-		std::cout << textureLibrary[itt->first] << std::endl;
-	}
 }
 
-void TextureManager::clearTextureLibrary() {
+void TextureManager::UnloadContent() {
 	textureLibrary.clear();
 }
 

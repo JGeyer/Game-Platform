@@ -1,13 +1,12 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include <map>
-#include <vector>
 
 class TextureManager {
 	public:
 		static TextureManager &Instance();
-		void setTextureLibrary(std::string path, std::vector<std::vector<std::string>> textures);
-		void clearTextureLibrary();
+		void LoadContent(std::string path, std::vector<std::vector<std::string>> textures);
+		void UnloadContent();
 		sf::Texture getTexture(std::string id);
 
 	private:

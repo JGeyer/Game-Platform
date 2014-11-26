@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <fstream>
-#include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -19,6 +18,6 @@ class FileManager {
 	private:
 		std::vector<std::string> tempAttributes;
 		std::vector<std::string> tempContents;
-		enum LoadState { ATTRIBUTES, CONTENTS };
+		enum LoadState { ATTRIBUTES, CONTENTS, NONE };
 		int state;
 };

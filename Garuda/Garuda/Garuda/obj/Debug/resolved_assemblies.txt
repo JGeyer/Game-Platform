@@ -1,0 +1,7 @@
+C:\Users\Jeff\Documents\GitHub\Game-Platform\Garuda\Garuda\Garuda\bin\Debug\Garuda.dll
+C:\Users\Jeff\Documents\GitHub\Game-Platform\Garuda\Garuda\packages\CocosSharp.Android.1.0.1.0\lib\MonoAndroid10\box2d.dll
+C:\Users\Jeff\Documents\GitHub\Game-Platform\Garuda\Garuda\packages\CocosSharp.Android.1.0.1.0\lib\MonoAndroid10\CocosSharp.dll
+C:\Users\Jeff\Documents\GitHub\Game-Platform\Garuda\Garuda\packages\CocosSharp.Android.1.0.1.0\lib\MonoAndroid10\ICSharpCode.SharpZipLib.dll
+C:\Users\Jeff\Documents\GitHub\Game-Platform\Garuda\Garuda\packages\CocosSharp.Android.1.0.1.0\lib\MonoAndroid10\Lidgren.Network.dll
+C:\Users\Jeff\Documents\GitHub\Game-Platform\Garuda\Garuda\packages\CocosSharp.Android.1.0.1.0\lib\MonoAndroid10\MonoGame.Framework.dll
+C:\Users\Jeff\Documents\GitHub\Game-Platform\Garuda\Garuda\packages\CocosSharp.Android.1.0.1.0\lib\MonoAndroid10\MonoGame.Framework.Net.dll

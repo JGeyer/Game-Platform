@@ -1,18 +1,17 @@
 #include "LevelManager.h"
-#include <iostream>
 
 LevelManager &LevelManager::Instance() {
 	static LevelManager instance;
 	return instance;
 }
 
-std::vector<Object> LevelManager::LoadContent(char* lfFilename, b2World &world, FileManager fileManager, InputManager inputManager) {
+void LevelManager::LoadContent(char* lfFilename, b2World &world, FileManager* fileManager) {
 	this->lfFilename = lfFilename;
-	//std::cout << lfFilename << std::endl;
-	std::vector<std::vector<std::string>> attributes, contents, pairings, textures, objects;
+	std::vector<std::vector<std::string>> attributes, contents, textures, objects, consumables, entities;
 	std::string path;
 
-	fileManager.LoadContent(lfFilename, attributes, contents);
+	// Load Attributes and Contents
+	fileManager->LoadContent(lfFilename, attributes, contents);
 	for (int i = 0; i < attributes.size(); i++) {
 		if (attributes[i][0] == "path") {
 			path = contents[i][0];
@@ -23,21 +22,59 @@ std::vector<Object> LevelManager::LoadContent(char* lfFilename, b2World &world, 
 		if (attributes[i][0] == "object") {
 			objects.push_back(contents[i]);
 		}
-		if (attributes[i][0] == "level") {
-			pairings.push_back(contents[i]);
+		if (attributes[i][0] == "consumable") {
+			consumables.push_back(contents[i]);
+		}
+		if (attributes[i][0] == "entity") {
+			entities.push_back(contents[i]);
 		}
 	}
-	TextureManager::Instance().setTextureLibrary(path, textures);
-	ObjectManager::Instance().setObjectLibrary(objects);
 
-	for (int i = 0; i < pairings.size(); i++) {
-		sf::Texture currentTexture = TextureManager::Instance().getTexture(pairings[i][1]);
-		levelObjects.push_back(ObjectManager::Instance().createObject(inputManager, world, pairings[i][0], currentTexture));
+	// Reset Previous  Libraries
+	TextureManager::Instance().UnloadContent();
+	ObjectManager::Instance().UnloadContent();
+	ConsumableManager::Instance().UnloadContent();
+	EntityManager::Instance().UnloadContent();
+
+	// Setup new  Libraries
+	TextureManager::Instance().LoadContent(path, textures);	
+	ObjectManager::Instance().LoadContent(objects);
+	ConsumableManager::Instance().LoadContent(consumables);
+	EntityManager::Instance().LoadContent(entities);
+
+	// For each texture-object pair, pull the correct texture from the library, create the corresponding object
+	// with correct texture and add to the level objects vector, then return the finished vector with all
+	// appropriate texture-object pairings
+	sf::Texture currentTexture;
+	for (int i = 0; i < objects.size(); i++) {
+		currentTexture = TextureManager::Instance().getTexture(objects[i][11]);
+		levelObjects.push_back(ObjectManager::Instance().createObject(world, objects[i][0], currentTexture));
 	}
-	return levelObjects;
+	for (int i = 0; i < consumables.size(); i++) {
+		currentTexture = TextureManager::Instance().getTexture(consumables[i][12]);
+		levelConsumables.push_back(ConsumableManager::Instance().createConsumable(world, consumables[i][0], currentTexture));
+	}
+	for (int i = 0; i < entities.size(); i++) {
+		currentTexture = TextureManager::Instance().getTexture(entities[i][6]);
+		levelEntities.push_back(EntityManager::Instance().createEntity(world, entities[i][0], currentTexture));
+	}
 }
 
 void LevelManager::UnloadContent() {
 	lfFilename = "";
 	levelObjects.clear();
+	levelConsumables.clear();
+	levelEntities.clear();
+}
+
+std::vector<Object*> LevelManager::getObjects() {
+	return levelObjects;
+}
+
+std::vector<Consumable*> LevelManager::getConsumables() {
+	return levelConsumables;
+}
+
+std::vector<Entity*> LevelManager::getEntities() {
+	return levelEntities;
 }

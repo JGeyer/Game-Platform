@@ -1,38 +1,32 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
-#include <Box2D/Box2D.h>
-#include <SFML/Graphics.hpp>
-#include "ContactListener.h"
-#include "Convert.h"
-#include "InputManager.h"
+#include "Entity.h"
+#include "MaterialData.h"
+#include "PlayerInfo.h"
 
-class Player {
+class Player : public Entity {
 	public:
-		Player(InputManager &inputManager, ContactListener *contactListener);
-		~Player();
-		virtual void Initialize(b2World& world, b2Vec2 position);
-		void LoadContent(sf::Texture texture, b2Vec2 origin);
-		void UnloadContent();
+		Player();
+		void Initialize(b2World& world, b2Vec2 position);
 		void Update(sf::Event event);
-		void Draw(sf::RenderWindow &window);
-		b2ContactListener* getContactListener();
-		b2Body* body;
+		void UpdatePassive();
 
-	protected:
-		int c;
-		bool isDead;
-		sf::Sprite sprite;
-		sf::Texture texture;
-		b2Vec2 origin;
-		b2BodyDef bodyDef;
-		b2PolygonShape shapeLeft;
-		b2PolygonShape shapeRight;
-		b2FixtureDef fixtureDef;
-		ContactListener* contactListener;
+		PlayerInfo* getPlayerInfo();
+		void Knockback(b2Vec2 otherPosition);
+		void setMovementSpeed(float speed);
+		void setJumpSpeed(float speed);
 
+		void IncrementFootContacts();
+		void DecrementFootContacts();
+
+		void IncrementHealth(int value);
+		void DecrementHealth(int value);
+
+		void addResource(MaterialData::material_type material_type, int value);
+		void subCopper(int value);
+		
 	private:
-		InputManager inputManager;
+		int hasControl, hasImmunity;
+		b2PolygonShape shape;
+		PlayerInfo* cPlayerInfo;
 };
-
-#endif

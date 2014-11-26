@@ -1,128 +1,183 @@
 #include "Player.h"
 
-Player::Player(InputManager &inputManager, ContactListener *contactListener) {
-	isDead = false;
-	bodyDef = b2BodyDef();
-	shapeLeft = b2PolygonShape();
-	shapeRight = b2PolygonShape();
-	fixtureDef = b2FixtureDef();
-	this->inputManager = inputManager;
-	this->contactListener = contactListener;
-	c= 0;
-}
-
-Player::~Player() {
-	//body->GetWorld()->DestroyBody(body);
+Player::Player() : Entity() {
+	this->type = EntityData::entity_type::PLAYER;
+	hasControl = 0;
+	hasImmunity = 0;
 }
 
 void Player::Initialize(b2World& world, b2Vec2 position) {
+	cPlayerInfo = new PlayerInfo();
+
 	bodyDef.position = position;
 	bodyDef.type = b2_dynamicBody;
 	bodyDef.fixedRotation = true;
 	body = world.CreateBody(&bodyDef);
 
 	Convert convert;
-	b2Vec2 vs0, vs1, vs2, vs3, vs4, vs5;
+	b2Vec2 vs0, vs1, vs2, vs3;
 
-	b2Vec2* vsLeft = new b2Vec2[6];
-	vs0 = convert.CoordPixelsToWorld(0, 80, 80.0f, 80.0f);
-	vs1 = convert.CoordPixelsToWorld(5, 49, 80.0f, 80.0f);
-	vs2 = convert.CoordPixelsToWorld(17, 22, 80.0f, 80.0f);
-	vs3 = convert.CoordPixelsToWorld(28, 10, 80.0f, 80.0f);
-	vs4 = convert.CoordPixelsToWorld(40, 7, 80.0f, 80.0f);
-	vs5 = convert.CoordPixelsToWorld(40, 80, 80.0f, 80.0f);
-	vsLeft[0].Set(vs0.x, vs0.y);
-	vsLeft[1].Set(vs1.x, vs1.y);
-	vsLeft[2].Set(vs2.x, vs2.y);
-	vsLeft[3].Set(vs3.x, vs3.y);
-	vsLeft[4].Set(vs4.x, vs4.y);
-	vsLeft[5].Set(vs5.x, vs5.y);
-	shapeLeft.Set(vsLeft, 6);
-
-	b2Vec2* vsRight = new b2Vec2[6];
-	vs0 = convert.CoordPixelsToWorld(40, 7, 80.0f, 80.0f);
-	vs1 = convert.CoordPixelsToWorld(46, 9, 80.0f, 80.0f);
-	vs2 = convert.CoordPixelsToWorld(63, 26, 80.0f, 80.0f);
-	vs3 = convert.CoordPixelsToWorld(71, 46, 80.0f, 80.0f);
-	vs4 = convert.CoordPixelsToWorld(80, 80, 80.0f, 80.0f);
-	vs5 = convert.CoordPixelsToWorld(40, 80, 80.0f, 80.0f);
-	vsRight[0].Set(vs0.x, vs0.y);
-	vsRight[1].Set(vs1.x, vs1.y);
-	vsRight[2].Set(vs2.x, vs2.y);
-	vsRight[3].Set(vs3.x, vs3.y);
-	vsRight[4].Set(vs4.x, vs4.y);
-	vsRight[5].Set(vs5.x, vs5.y);
-	shapeRight.Set(vsRight, 6);
+	b2Vec2* vs = new b2Vec2[4];
+	vs0 = convert.CoordPixelsToWorld(0, 50, 50.0f, 50.0f);
+	vs1 = convert.CoordPixelsToWorld(0, 0, 50.0f, 50.0f);
+	vs2 = convert.CoordPixelsToWorld(50, 0, 50.0f, 50.0f);
+	vs3 = convert.CoordPixelsToWorld(50, 50, 50.0f, 50.0f);
+	vs[0].Set(vs0.x, vs0.y);
+	vs[1].Set(vs1.x, vs1.y);
+	vs[2].Set(vs2.x, vs2.y);
+	vs[3].Set(vs3.x, vs3.y);
+	shape.Set(vs, 4);
 
 	b2PolygonShape footSensor;
-	footSensor.SetAsBox(0.033f * 30.0f, 0.033f * 3.0f, b2Vec2(0, 1.33f), 0);
+	footSensor.SetAsBox(0.025f * 30.0f, 0.033f * 3.0f, b2Vec2(0, 1.33f), 0);
 	b2FixtureDef footFixtureDef;
-	footFixtureDef.density = 1;
+	footFixtureDef.density = 1.0f;
 	footFixtureDef.shape = &footSensor;
 	footFixtureDef.isSensor = true;
 
 	fixtureDef.density = 1.0f;
-	fixtureDef.friction = 0.2f;
-	fixtureDef.shape = &shapeLeft;
+	fixtureDef.friction = 0.0f;
+	fixtureDef.shape = &shape;
 	body->CreateFixture(&fixtureDef);
-	fixtureDef.shape = &shapeRight;
-	body->CreateFixture(&fixtureDef);
+
+	b2Fixture* playerSensorFixture = body->CreateFixture(&fixtureDef);
+	ContactUserData* cud = new ContactUserData();
+	cud->type = ContactUserData::Type::PLAYER;
+	cud->data = this;
+	playerSensorFixture->SetUserData(cud);
 	b2Fixture* footSensorFixture = body->CreateFixture(&footFixtureDef);
-	footSensorFixture->SetUserData((void*)3);
+	cud = new ContactUserData();
+	cud->type = ContactUserData::Type::FOOT_SENSOR;
+	cud->data = this;
+	footSensorFixture->SetUserData(cud);
 }
-
-void Player::LoadContent(sf::Texture texture, b2Vec2 origin) {
-	this->texture = texture;
-	this->origin = origin;
-}
-
-void Player::UnloadContent() {
-	texture.~Texture();
-}
-
-#include <iostream>
 
 void Player::Update(sf::Event event) {
-	inputManager.Update(event);
-	int numFootContacts = contactListener->numFootContacts;
+	if (hasControl == 0) {
+		float impulse_x = 0.0f;
+		float impulse_y = 0.0f;
+		float desiredVel = 0.0f;
 
-	std::vector<sf::Keyboard::Key> movementKeys;
-	movementKeys.push_back(sf::Keyboard::Key::Left);
-	movementKeys.push_back(sf::Keyboard::Key::Right);
-	movementKeys.push_back(sf::Keyboard::Key::Space);
-	if (inputManager.KeyPressed(movementKeys) || inputManager.KeyDown(movementKeys)) {
-		if (inputManager.KeyPressed(sf::Keyboard::Key::Space) || inputManager.KeyDown(sf::Keyboard::Key::Space)) {
-			if (numFootContacts > 0) {
-				body->ApplyLinearImpulse(b2Vec2(0, -(body->GetMass() * 5)), body->GetWorldCenter(), true);
+		float mass = body->GetMass();
+		b2Vec2 vel = body->GetLinearVelocity();
+
+		// X Velocity Impulse Calculation
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+			desiredVel = 0.0f;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+			sprite.setScale(1, 1);
+			desiredVel = cPlayerInfo->movement_speed;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+			sprite.setScale(-1, 1);
+			desiredVel = -cPlayerInfo->movement_speed;
+		}
+		else {
+			desiredVel = 0.0f;
+		}
+		float velChange = desiredVel - vel.x;
+		impulse_x = mass * velChange;
+
+		// Y Velocity Impulse Calculation (todo: identify true issue to AND statement)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && (int)vel.y == 0) {
+			if (cPlayerInfo->footContacts > 0) {
+				impulse_y = -(mass * cPlayerInfo->jump_speed);
 			}
 		}
-		if (inputManager.KeyPressed(sf::Keyboard::Key::Left) || inputManager.KeyDown(sf::Keyboard::Key::Left)) {
-			sprite.setScale(-1, 1);
-			b2Vec2 vel = body->GetLinearVelocity();
-			vel.x = -4.0f;
-			body->SetAwake(true);
-			body->SetLinearVelocity(vel);
-			c++;
-			std::cout << c << std::endl;
+		body->ApplyLinearImpulse(b2Vec2(impulse_x, impulse_y), body->GetWorldCenter(), true);
+	}
+}
+
+void Player::UpdatePassive() {
+	if (hasImmunity > 0) {
+		--hasImmunity;
+		if (hasImmunity == 0) {
+			sprite.setColor(sf::Color::White);
 		}
-		if (inputManager.KeyPressed(sf::Keyboard::Key::Right) || inputManager.KeyDown(sf::Keyboard::Key::Right)) {
-			sprite.setScale(1, 1);
+	}
+	if (hasControl > 0) {
+		--hasControl;
+		if (hasControl == 0) {
 			b2Vec2 vel = body->GetLinearVelocity();
-			vel.x = 4.0f;
-			body->SetAwake(true);
+			vel.x = 0.0f;
 			body->SetLinearVelocity(vel);
+			body->SetAwake(true);
 		}
 	}
 }
 
-void Player::Draw(sf::RenderWindow &window) {
-	sprite.setTexture(texture);
-	sprite.setOrigin(origin.x, origin.y);
-	sprite.setPosition(body->GetPosition().x * 30.0f,  body->GetPosition().y * 30.0f);
-	sprite.setRotation(body->GetAngle() * 180 / b2_pi);
-	window.draw(sprite);
+void Player::Knockback(b2Vec2 otherPosition) {
+	hasControl = 30;
+	b2Vec2 vel = body->GetLinearVelocity();
+
+	float diff_x = body->GetPosition().x - otherPosition.x;
+	if (diff_x > 0) {
+		vel.x = 8.0f;
+	}
+	else {
+		vel.x = -8.0f;
+	}
+	vel.y = -8.0f;
+
+	body->SetLinearVelocity(vel);
+	body->SetAwake(true);
 }
 
-b2ContactListener* Player::getContactListener() {
-	return contactListener;
+void Player::setMovementSpeed(float speed) {
+	cPlayerInfo->movement_speed = speed;
+}
+
+void Player::setJumpSpeed(float speed) {
+	cPlayerInfo->jump_speed = speed;
+}
+
+void Player::IncrementFootContacts() {
+	cPlayerInfo->footContacts += 1;
+}
+
+void Player::DecrementFootContacts() {
+	cPlayerInfo->footContacts -= 1;
+}
+
+void Player::IncrementHealth(int value) {
+	cPlayerInfo->health += value;
+	if (cPlayerInfo->health > 100) {
+		cPlayerInfo->health = 100;
+	}
+}
+
+void Player::DecrementHealth(int value) {
+	if (hasImmunity == 0) {
+		hasImmunity = 100;
+		sprite.setColor(sf::Color::Red);
+		cPlayerInfo->health -= value;
+		if (cPlayerInfo->health <= 0) {
+			cPlayerInfo->health = 0;
+			//isDead = true;
+		}
+	}
+}
+
+void Player::addResource(MaterialData::material_type material_type, int value) {
+	if (material_type == MaterialData::material_type::COPPER) {
+		cPlayerInfo->copper += value;
+	}
+	if (material_type == MaterialData::material_type::IRON) {
+		cPlayerInfo->iron += value;
+	}
+	if (material_type == MaterialData::material_type::CARBON) {
+		cPlayerInfo->carbon += value;
+	}
+	if (material_type == MaterialData::material_type::ZINC) {
+		cPlayerInfo->zinc += value;
+	}
+}
+
+void Player::subCopper(int value) {
+	cPlayerInfo->copper -= value;
+}
+
+PlayerInfo* Player::getPlayerInfo() {
+	return cPlayerInfo;
 }
