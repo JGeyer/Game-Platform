@@ -1,6 +1,10 @@
 #pragma once
 
-// Entities
+// Entity Base
 #include "Entity.h"
-#include "Enemy.h"
+
+// Player
 #include "Player.h"
+
+// Enemies
+#include "Enemy.h"

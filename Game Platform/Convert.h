@@ -1,5 +1,4 @@
-#ifndef CONVERT_H
-#define	CONVERT_H
+#pragma once
 
 #include <Box2D/Box2D.h>
 
@@ -15,5 +14,3 @@ class Convert {
 		const float PIXELS_TO_WORLD;
 		const float WORLD_TO_PIXELS;
 };
-
-#endif

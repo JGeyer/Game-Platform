@@ -1,16 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Test Area">
-      <UniqueIdentifier>{027438a5-4272-4a8b-9ea2-1286936433cd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files\Assets">
       <UniqueIdentifier>{3d355029-11c0-419d-a0af-5990ead1b574}</UniqueIdentifier>
@@ -21,26 +14,8 @@
     <Filter Include="Manager Files">
       <UniqueIdentifier>{02d58ff6-b7e4-401c-9025-fc1a278df807}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager Files\Header">
-      <UniqueIdentifier>{c5849bbe-2d0a-4aa4-a5f4-2ef83e99eef3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager Files\Source">
-      <UniqueIdentifier>{0dca476b-25fc-4f78-92d8-ac7db01049dc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Assets\LoadFiles">
       <UniqueIdentifier>{a8a04148-9207-43ab-a70b-28222a56f6c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager Files\Header\Game Specific">
-      <UniqueIdentifier>{b6879f64-362e-4109-89d7-7102f22549b4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager Files\Header\Load Specific">
-      <UniqueIdentifier>{a597e37f-568a-4177-8675-4acd77759a19}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager Files\Source\Game Specific">
-      <UniqueIdentifier>{6411b026-4b97-4045-8c63-609b71074803}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager Files\Source\Load Specific">
-      <UniqueIdentifier>{c2a329fb-de40-4b28-bfc4-def2c5b7f920}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files\Contact">
       <UniqueIdentifier>{4ffd8e57-f45f-4599-b65f-65ef6d4a5860}</UniqueIdentifier>
@@ -48,145 +23,191 @@
     <Filter Include="Resource Files\Convert">
       <UniqueIdentifier>{7012df21-e027-4a87-97a9-c9abd455f5fc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Screens">
-      <UniqueIdentifier>{de6e4899-f78f-4833-8cd9-7ed434f2c407}</UniqueIdentifier>
+    <Filter Include="Resource Files\Assets\Fonts">
+      <UniqueIdentifier>{e6d10056-8620-4acf-80f7-664cd04726fe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements">
+    <Filter Include="Resource Files\Assets\Music">
+      <UniqueIdentifier>{e63b4666-4d82-428f-ba32-d319113b6cba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Sounds">
+      <UniqueIdentifier>{72952cd4-bd10-43b1-a7d2-67d5edb55fdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures\Objects">
+      <UniqueIdentifier>{06557006-879b-4684-a5ad-66d7ca4b24e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures\Consumables">
+      <UniqueIdentifier>{8b62df71-7486-4950-bf30-fcf74fdf843c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures\Entities">
+      <UniqueIdentifier>{dfb6f45d-d634-4840-86a1-bc784a159408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures\Screens">
+      <UniqueIdentifier>{331a22ef-86ce-4ec8-9a6e-a0373865ecc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures\Screens\Menu">
+      <UniqueIdentifier>{9662793b-7207-4c1d-8d28-31f75425790b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures\Levels">
+      <UniqueIdentifier>{1b72b982-10f4-42ec-b2e1-421489fb64b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures\Levels\Test">
+      <UniqueIdentifier>{82766a6c-1a27-4cc4-befc-79227f4cf1b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager Files\Camera">
+      <UniqueIdentifier>{8654a978-b812-42cb-8462-924897c65f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager Files\Texture">
+      <UniqueIdentifier>{e502be96-86a3-411b-bdd4-c766a83311d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager Files\File">
+      <UniqueIdentifier>{a68b204f-a6cc-48e4-913d-cd345317fba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="On Screen Elements">
       <UniqueIdentifier>{bf2723c6-c678-4a7f-8861-179c6aabaa90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Entities">
+    <Filter Include="On Screen Elements\Entities">
       <UniqueIdentifier>{0ce0961f-6383-4eb0-b9d3-797055075137}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Entities\Enemy">
+    <Filter Include="On Screen Elements\Entities\Enemy">
       <UniqueIdentifier>{a61e7c5b-4a13-4a85-852f-4d772336e56b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Entities\Player">
+    <Filter Include="On Screen Elements\Entities\Player">
       <UniqueIdentifier>{c4bad264-fb03-49c8-b8d3-240ffbfd8bdf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Entities\Entity %28Base%29">
+    <Filter Include="On Screen Elements\Entities\Entity %28Base%29">
       <UniqueIdentifier>{2ce5f803-d765-4860-ad44-fc5dd01eafc1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Consumables">
+    <Filter Include="On Screen Elements\Consumables">
       <UniqueIdentifier>{5691f29f-7ad9-4526-9b14-5e9740dcdc0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Consumables\Material">
+    <Filter Include="On Screen Elements\Consumables\Material">
       <UniqueIdentifier>{7bddd31b-c9ce-4f94-bde4-b0192bf1252b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Consumables\Consumable %28base%29">
+    <Filter Include="On Screen Elements\Consumables\Consumable %28base%29">
       <UniqueIdentifier>{7392992d-9e5f-42e3-aae9-352705bc13b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Objects">
+    <Filter Include="On Screen Elements\Objects">
       <UniqueIdentifier>{05b8e403-1be9-44f5-b2d9-a736fb01345c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Objects\Object %28Base%29">
+    <Filter Include="On Screen Elements\Objects\Object %28Base%29">
       <UniqueIdentifier>{709d5a40-1e55-45ea-bcf9-3fd8798f3330}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Objects\Basic">
+    <Filter Include="On Screen Elements\Objects\Basic">
       <UniqueIdentifier>{b11c2ddf-8078-4cfd-9211-26c8fd217b43}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gameplay Elements\Cell %28Base%29">
+    <Filter Include="On Screen Elements\Cell %28Base%29">
       <UniqueIdentifier>{fd19f83e-36fa-4012-9119-2304966626f5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Include Headers">
-      <UniqueIdentifier>{98188b1a-b16c-4d7a-8b6f-30af7b6bfc50}</UniqueIdentifier>
+    <Filter Include="Screen Files">
+      <UniqueIdentifier>{de6e4899-f78f-4833-8cd9-7ed434f2c407}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Screens\Game">
+    <Filter Include="Screen Files\Game">
       <UniqueIdentifier>{3a6d1ea1-635e-4220-99f3-00db3a85415c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Screens\Menu">
+    <Filter Include="Screen Files\Menu">
       <UniqueIdentifier>{bc37b087-a474-4dab-86d5-87cf8e0c6e6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Screens\Base">
+    <Filter Include="Screen Files\Bases">
       <UniqueIdentifier>{f7d9ae4e-e98a-471f-a72e-e11936abd9b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Screens\Inventory">
+    <Filter Include="Screen Files\Overlays">
+      <UniqueIdentifier>{ff483760-eb9b-4b8c-aeb9-f0e3d9b1df18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screen Files\Overlays\Inventory">
       <UniqueIdentifier>{411b6450-efa7-4a76-89e2-a1584573cbb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screen Files\Overlays\HUD">
+      <UniqueIdentifier>{5890f9c3-925d-445f-9ba9-671d2435622a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include Files">
+      <UniqueIdentifier>{98188b1a-b16c-4d7a-8b6f-30af7b6bfc50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager Files\Music">
+      <UniqueIdentifier>{3c25a79b-a768-42cc-b2ee-6a54a1cc5ffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screen Files\Overlays\Pause">
+      <UniqueIdentifier>{840b387b-49e9-448a-8ac8-ebf4b69199cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screen Files\Overlays\Craft">
+      <UniqueIdentifier>{d6bce6c9-254f-484f-b450-66a7adbf5327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screen Files\Overlays\Stats">
+      <UniqueIdentifier>{7005a291-ca77-4f3a-8ca7-43c203c4eb51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screen Files\Overlays\Base">
+      <UniqueIdentifier>{581b1d5b-6607-44ad-b132-ed6171255c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager Files\Creation">
+      <UniqueIdentifier>{7fa2b3ef-b629-4a59-b7c5-f3ee2f3fb3ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraManager.cpp">
-      <Filter>Manager Files\Source\Game Specific</Filter>
-    </ClCompile>
-    <ClCompile Include="FileManager.cpp">
-      <Filter>Manager Files\Source\Load Specific</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
-      <Filter>Manager Files\Source\Load Specific</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager.cpp">
-      <Filter>Manager Files\Source\Load Specific</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Manager Files\Source\Load Specific</Filter>
-    </ClCompile>
     <ClCompile Include="Convert.cpp">
       <Filter>Resource Files\Convert</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Gameplay Elements\Entities\Player</Filter>
+      <Filter>On Screen Elements\Entities\Player</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Gameplay Elements\Objects\Object %28Base%29</Filter>
+      <Filter>On Screen Elements\Objects\Object %28Base%29</Filter>
     </ClCompile>
     <ClCompile Include="Material.cpp">
-      <Filter>Gameplay Elements\Consumables\Material</Filter>
-    </ClCompile>
-    <ClCompile Include="HudManager.cpp">
-      <Filter>Manager Files\Source\Game Specific</Filter>
+      <Filter>On Screen Elements\Consumables\Material</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Gameplay Elements\Entities\Enemy</Filter>
+      <Filter>On Screen Elements\Entities\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
-      <Filter>Gameplay Elements\Objects\Basic</Filter>
+      <Filter>On Screen Elements\Objects\Basic</Filter>
     </ClCompile>
     <ClCompile Include="Circle.cpp">
-      <Filter>Gameplay Elements\Objects\Basic</Filter>
+      <Filter>On Screen Elements\Objects\Basic</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Gameplay Elements\Entities\Entity %28Base%29</Filter>
-    </ClCompile>
-    <ClCompile Include="ConsumableManager.cpp">
-      <Filter>Manager Files\Source\Load Specific</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityManager.cpp">
-      <Filter>Manager Files\Source\Load Specific</Filter>
+      <Filter>On Screen Elements\Entities\Entity %28Base%29</Filter>
     </ClCompile>
     <ClCompile Include="Consumable.cpp">
-      <Filter>Gameplay Elements\Consumables\Consumable %28base%29</Filter>
+      <Filter>On Screen Elements\Consumables\Consumable %28base%29</Filter>
     </ClCompile>
     <ClCompile Include="Cell.cpp">
-      <Filter>Gameplay Elements\Cell %28Base%29</Filter>
+      <Filter>On Screen Elements\Cell %28Base%29</Filter>
     </ClCompile>
     <ClCompile Include="GameScreen.cpp">
-      <Filter>Screens\Game</Filter>
+      <Filter>Screen Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="MenuScreen.cpp">
-      <Filter>Screens\Menu</Filter>
+      <Filter>Screen Files\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="InventoryScreen.cpp">
-      <Filter>Screens\Inventory</Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>Manager Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Manager Files\File</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Manager Files\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryOverlay.cpp">
+      <Filter>Screen Files\Overlays\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="HudOverlay.cpp">
+      <Filter>Screen Files\Overlays\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicManager.cpp">
+      <Filter>Manager Files\Music</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseOverlay.cpp">
+      <Filter>Screen Files\Overlays\Pause</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsOverlay.cpp">
+      <Filter>Screen Files\Overlays\Stats</Filter>
+    </ClCompile>
+    <ClCompile Include="CreationManager.cpp">
+      <Filter>Manager Files\Creation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CameraManager.h">
-      <Filter>Manager Files\Header\Game Specific</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Manager Files\Header\Load Specific</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelManager.h">
-      <Filter>Manager Files\Header\Load Specific</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>Manager Files\Header\Load Specific</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Manager Files\Header\Load Specific</Filter>
-    </ClInclude>
     <ClInclude Include="ContactListener.h">
       <Filter>Resource Files\Contact</Filter>
     </ClInclude>
@@ -194,102 +215,174 @@
       <Filter>Resource Files\Convert</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Gameplay Elements\Entities\Player</Filter>
+      <Filter>On Screen Elements\Entities\Player</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>Gameplay Elements\Objects\Object %28Base%29</Filter>
+      <Filter>On Screen Elements\Objects\Object %28Base%29</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
-      <Filter>Gameplay Elements\Consumables\Material</Filter>
-    </ClInclude>
-    <ClInclude Include="HudManager.h">
-      <Filter>Manager Files\Header\Game Specific</Filter>
+      <Filter>On Screen Elements\Consumables\Material</Filter>
     </ClInclude>
     <ClInclude Include="ContactHandler.h">
       <Filter>Resource Files\Contact</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Gameplay Elements\Entities\Enemy</Filter>
+      <Filter>On Screen Elements\Entities\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Box.h">
-      <Filter>Gameplay Elements\Objects\Basic</Filter>
+      <Filter>On Screen Elements\Objects\Basic</Filter>
     </ClInclude>
     <ClInclude Include="Circle.h">
-      <Filter>Gameplay Elements\Objects\Basic</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyData.h">
-      <Filter>Gameplay Elements\Entities\Enemy</Filter>
+      <Filter>On Screen Elements\Objects\Basic</Filter>
     </ClInclude>
     <ClInclude Include="MaterialData.h">
-      <Filter>Gameplay Elements\Consumables\Material</Filter>
+      <Filter>On Screen Elements\Consumables\Material</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Gameplay Elements\Entities\Entity %28Base%29</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsumableManager.h">
-      <Filter>Manager Files\Header\Load Specific</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityManager.h">
-      <Filter>Manager Files\Header\Load Specific</Filter>
+      <Filter>On Screen Elements\Entities\Entity %28Base%29</Filter>
     </ClInclude>
     <ClInclude Include="Consumable.h">
-      <Filter>Gameplay Elements\Consumables\Consumable %28base%29</Filter>
+      <Filter>On Screen Elements\Consumables\Consumable %28base%29</Filter>
     </ClInclude>
     <ClInclude Include="Cell.h">
-      <Filter>Gameplay Elements\Cell %28Base%29</Filter>
+      <Filter>On Screen Elements\Cell %28Base%29</Filter>
     </ClInclude>
     <ClInclude Include="ConsumableData.h">
-      <Filter>Gameplay Elements\Consumables\Consumable %28base%29</Filter>
+      <Filter>On Screen Elements\Consumables\Consumable %28base%29</Filter>
     </ClInclude>
     <ClInclude Include="EntityData.h">
-      <Filter>Gameplay Elements\Entities\Entity %28Base%29</Filter>
+      <Filter>On Screen Elements\Entities\Entity %28Base%29</Filter>
     </ClInclude>
     <ClInclude Include="ObjectData.h">
-      <Filter>Gameplay Elements\Objects\Object %28Base%29</Filter>
+      <Filter>On Screen Elements\Objects\Object %28Base%29</Filter>
     </ClInclude>
     <ClInclude Include="ScreensInclude.h">
-      <Filter>Include Headers</Filter>
+      <Filter>Include Files</Filter>
     </ClInclude>
     <ClInclude Include="ConsumablesInclude.h">
-      <Filter>Include Headers</Filter>
+      <Filter>Include Files</Filter>
     </ClInclude>
     <ClInclude Include="ElementsInclude.h">
-      <Filter>Include Headers</Filter>
+      <Filter>Include Files</Filter>
     </ClInclude>
     <ClInclude Include="EntitiesInclude.h">
-      <Filter>Include Headers</Filter>
+      <Filter>Include Files</Filter>
     </ClInclude>
     <ClInclude Include="ObjectsInclude.h">
-      <Filter>Include Headers</Filter>
+      <Filter>Include Files</Filter>
     </ClInclude>
     <ClInclude Include="ScreenState.h">
-      <Filter>Screens</Filter>
+      <Filter>Screen Files</Filter>
     </ClInclude>
     <ClInclude Include="GameScreen.h">
-      <Filter>Screens\Game</Filter>
+      <Filter>Screen Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="MenuScreen.h">
-      <Filter>Screens\Menu</Filter>
+      <Filter>Screen Files\Menu</Filter>
     </ClInclude>
     <ClInclude Include="BaseScreen.h">
-      <Filter>Screens\Base</Filter>
+      <Filter>Screen Files\Bases</Filter>
     </ClInclude>
     <ClInclude Include="ContactUserData.h">
       <Filter>Resource Files\Contact</Filter>
     </ClInclude>
-    <ClInclude Include="InventoryScreen.h">
-      <Filter>Screens\Inventory</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerInfo.h">
-      <Filter>Gameplay Elements\Entities\Player</Filter>
+      <Filter>On Screen Elements\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>Manager Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Manager Files\File</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Manager Files\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementData.h">
+      <Filter>Manager Files\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryOverlay.h">
+      <Filter>Screen Files\Overlays\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="HudOverlay.h">
+      <Filter>Screen Files\Overlays\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlaysInclude.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicManager.h">
+      <Filter>Manager Files\Music</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseOverlay.h">
+      <Filter>Screen Files\Overlays\Pause</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseOverlay.h">
+      <Filter>Screen Files\Overlays\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsOverlay.h">
+      <Filter>Screen Files\Overlays\Stats</Filter>
+    </ClInclude>
+    <ClInclude Include="CreationManager.h">
+      <Filter>Manager Files\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyInfo.h">
+      <Filter>On Screen Elements\Entities\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Textures\box.png">
-      <Filter>Resource Files\Assets\Textures</Filter>
+    <Image Include="Assets\Textures\arrow.png">
+      <Filter>Resource Files\Assets\Textures\Screens\Menu</Filter>
     </Image>
-    <Image Include="Assets\Textures\ground.png">
-      <Filter>Resource Files\Assets\Textures</Filter>
+    <Image Include="Assets\Textures\background.png">
+      <Filter>Resource Files\Assets\Textures\Levels\Test</Filter>
+    </Image>
+    <Image Include="Assets\Textures\box.png">
+      <Filter>Resource Files\Assets\Textures\Objects</Filter>
+    </Image>
+    <Image Include="Assets\Textures\circle.gif">
+      <Filter>Resource Files\Assets\Textures\Objects</Filter>
+    </Image>
+    <Image Include="Assets\Textures\GenericEnemy.png">
+      <Filter>Resource Files\Assets\Textures\Entities</Filter>
+    </Image>
+    <Image Include="Assets\Textures\groundL.png">
+      <Filter>Resource Files\Assets\Textures\Levels\Test</Filter>
+    </Image>
+    <Image Include="Assets\Textures\groundM.png">
+      <Filter>Resource Files\Assets\Textures\Levels\Test</Filter>
+    </Image>
+    <Image Include="Assets\Textures\groundS.png">
+      <Filter>Resource Files\Assets\Textures\Levels\Test</Filter>
+    </Image>
+    <Image Include="Assets\Textures\initializing.png">
+      <Filter>Resource Files\Assets\Textures\Screens\Menu</Filter>
+    </Image>
+    <Image Include="Assets\Textures\left_half_animation.png">
+      <Filter>Resource Files\Assets\Textures\Screens\Menu</Filter>
+    </Image>
+    <Image Include="Assets\Textures\materialCarbon.png">
+      <Filter>Resource Files\Assets\Textures\Consumables</Filter>
+    </Image>
+    <Image Include="Assets\Textures\materialCopper.png">
+      <Filter>Resource Files\Assets\Textures\Consumables</Filter>
+    </Image>
+    <Image Include="Assets\Textures\materialIron.png">
+      <Filter>Resource Files\Assets\Textures\Consumables</Filter>
+    </Image>
+    <Image Include="Assets\Textures\materialZinc.png">
+      <Filter>Resource Files\Assets\Textures\Consumables</Filter>
+    </Image>
+    <Image Include="Assets\Textures\pickupHealth.png">
+      <Filter>Resource Files\Assets\Textures\Consumables</Filter>
+    </Image>
+    <Image Include="Assets\Textures\right_half_animation.png">
+      <Filter>Resource Files\Assets\Textures\Screens\Menu</Filter>
+    </Image>
+    <Image Include="Assets\Textures\RobotCharacter.png">
+      <Filter>Resource Files\Assets\Textures\Entities</Filter>
+    </Image>
+    <Image Include="Assets\Textures\wallL.png">
+      <Filter>Resource Files\Assets\Textures\Levels\Test</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -298,11 +391,30 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\LoadFiles\TrackList.lf">
+      <Filter>Resource Files\Assets\LoadFiles</Filter>
+    </None>
+    <None Include="Assets\Music\Game.ogg">
+      <Filter>Resource Files\Assets\Music</Filter>
+    </None>
+    <None Include="Assets\Music\Menu.ogg">
+      <Filter>Resource Files\Assets\Music</Filter>
+    </None>
+    <None Include="LevelList.lf">
+      <Filter>Resource Files\Assets\LoadFiles</Filter>
+    </None>
     <None Include="Assets\LoadFiles\TestLevel1.lf">
       <Filter>Resource Files\Assets\LoadFiles</Filter>
     </None>
-    <None Include="Assets\LoadFiles\TestLevel2.lf">
-      <Filter>Resource Files\Assets\LoadFiles</Filter>
-    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Arial.ttf">
+      <Filter>Resource Files\Assets\Fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\Sounds\Jump.wav">
+      <Filter>Resource Files\Assets\Sounds</Filter>
+    </Media>
   </ItemGroup>
 </Project>

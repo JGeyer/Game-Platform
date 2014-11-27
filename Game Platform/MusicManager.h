@@ -1,20 +1,17 @@
-#include <SFML/Audio/Music.hpp>
+#pragma once
+
+#include <map>
+#include <string>
 #include <vector>
-#include "FileManager.h"
 
 class MusicManager {
 	public:
 		static MusicManager &Instance();
-		void LoadContent(char* lfFilename, FileManager* fileManager);
+		void LoadContent(std::string path, std::vector<std::vector<std::string>> songs);
 		void UnloadContent();
-
-		void clearMusicLibrary();
-
-		//sf::Music GetSong(std::string id);
+		std::string getMusicPath(std::string id);
 
 	private:
-		MusicManager() : lfFilename(""), musicLibrary() {};
-		char* lfFilename;
-		std::vector<sf::Music> musicLibrary;
-
+		MusicManager() : musicLibrary() {};
+		std::map<std::string, std::string> musicLibrary;
 };

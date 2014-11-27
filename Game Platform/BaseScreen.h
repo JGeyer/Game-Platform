@@ -2,11 +2,12 @@
 
 #include <SFML/Audio/Music.hpp>
 #include <SFML/Graphics.hpp>
+#include "MusicManager.h"
 #include "ScreenState.h"
 
 class BaseScreen {
 	public:
-		virtual ScreenState::State Run (sf::RenderWindow &App) = 0;
+		virtual ScreenState::PrimaryState Run (sf::RenderWindow &App) = 0;
 		virtual void Draw(sf::RenderWindow &App) {};
 		void SetMusic(std::string id) {
 			screenSong = new sf::Music();
@@ -16,5 +17,6 @@ class BaseScreen {
 
 	protected:
 		sf::Music* screenSong;
-		ScreenState::State screenState;
+		ScreenState::PrimaryState pScreenState;
+		ScreenState::SecondaryState sScreenState;
 };

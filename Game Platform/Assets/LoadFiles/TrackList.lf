@@ -2,4 +2,5 @@ Load=[path]
 [C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Music/]
 
 Load=[songs]
-[Tutorial][Sanic Theme.mp3]
+[Menu][Menu.ogg]
+[TestLevel][Game.ogg]

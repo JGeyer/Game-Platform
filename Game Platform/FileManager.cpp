@@ -1,11 +1,8 @@
 #include "FileManager.h"
 
-FileManager::FileManager() {
-	state = NONE;
-}
-
-FileManager::~FileManager() {
-
+FileManager &FileManager::Instance() {
+	static FileManager instance;
+	return instance;
 }
 
 void FileManager::LoadContent(const char* filename, 
@@ -51,4 +48,9 @@ void FileManager::LoadContent(const char* filename,
 	else {
 		//todo: else case
 	}
+}
+
+void FileManager::UnloadContent() {
+	tempAttributes.clear();
+	tempContents.clear();
 }

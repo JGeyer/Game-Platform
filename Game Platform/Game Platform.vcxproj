@@ -170,51 +170,51 @@
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Consumable.cpp" />
-    <ClCompile Include="ConsumableManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="GameScreen.cpp" />
-    <ClCompile Include="HudManager.cpp" />
-    <ClCompile Include="InventoryScreen.cpp" />
-    <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="HudOverlay.cpp" />
+    <ClCompile Include="InventoryOverlay.cpp" />
+    <ClCompile Include="CreationManager.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
-    <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Convert.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MusicManager.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="PauseOverlay.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="StatsOverlay.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseScreen.h" />
+    <ClInclude Include="BaseOverlay.h" />
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Consumable.h" />
     <ClInclude Include="ConsumableData.h" />
-    <ClInclude Include="ConsumableManager.h" />
     <ClInclude Include="ConsumablesInclude.h" />
     <ClInclude Include="ContactHandler.h" />
     <ClInclude Include="ContactListener.h" />
+    <ClInclude Include="ElementData.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyData.h" />
+    <ClInclude Include="EnemyInfo.h" />
     <ClInclude Include="EntitiesInclude.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityData.h" />
-    <ClInclude Include="EntityManager.h" />
     <ClInclude Include="GameScreen.h" />
-    <ClInclude Include="HudManager.h" />
-    <ClInclude Include="InventoryScreen.h" />
-    <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="HudOverlay.h" />
+    <ClInclude Include="InventoryOverlay.h" />
+    <ClInclude Include="CreationManager.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialData.h" />
     <ClInclude Include="MenuScreen.h" />
+    <ClInclude Include="MusicManager.h" />
     <ClInclude Include="ObjectData.h" />
-    <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Convert.h" />
@@ -223,22 +223,50 @@
     <ClInclude Include="ElementsInclude.h" />
     <ClInclude Include="ObjectsInclude.h" />
     <ClInclude Include="ContactUserData.h" />
+    <ClInclude Include="OverlaysInclude.h" />
+    <ClInclude Include="PauseOverlay.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInfo.h" />
     <ClInclude Include="ScreensInclude.h" />
     <ClInclude Include="ScreenState.h" />
+    <ClInclude Include="StatsOverlay.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Textures\arrow.png" />
+    <Image Include="Assets\Textures\background.png" />
     <Image Include="Assets\Textures\box.png" />
-    <Image Include="Assets\Textures\ground.png" />
+    <Image Include="Assets\Textures\circle.gif" />
+    <Image Include="Assets\Textures\GenericEnemy.png" />
+    <Image Include="Assets\Textures\groundL.png" />
+    <Image Include="Assets\Textures\groundM.png" />
+    <Image Include="Assets\Textures\groundS.png" />
+    <Image Include="Assets\Textures\initializing.png" />
+    <Image Include="Assets\Textures\left_half_animation.png" />
+    <Image Include="Assets\Textures\materialCarbon.png" />
+    <Image Include="Assets\Textures\materialCopper.png" />
+    <Image Include="Assets\Textures\materialIron.png" />
+    <Image Include="Assets\Textures\materialZinc.png" />
+    <Image Include="Assets\Textures\pickupHealth.png" />
+    <Image Include="Assets\Textures\right_half_animation.png" />
+    <Image Include="Assets\Textures\RobotCharacter.png" />
+    <Image Include="Assets\Textures\wallL.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Loadfiles\TestLoad.lf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\LoadFiles\TestLevel1.lf" />
-    <None Include="Assets\LoadFiles\TestLevel2.lf" />
+    <None Include="Assets\LoadFiles\TrackList.lf" />
+    <None Include="Assets\Music\Game.ogg" />
+    <None Include="Assets\Music\Menu.ogg" />
+    <None Include="LevelList.lf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\Sounds\Jump.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

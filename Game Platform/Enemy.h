@@ -1,31 +1,22 @@
 #pragma once
 
 #include "Entity.h"
-#include "EnemyData.h"
+#include "EnemyInfo.h"
 
 class Enemy : public Entity {
 	public:
-		Enemy(EnemyData::enemy_type type, EnemyData::enemy_rank rank);
+		Enemy(EnemyInfo::EnemyData::enemy_type type, EnemyInfo::EnemyData::enemy_rank rank);
 		void Initialize(b2World& world, b2Vec2 position);
 		void Update(sf::Event event);
 		void UpdatePassive();
 
+		EnemyInfo GetEnemyInfo();
 		void IncrementHealth(int value);
 		void DecrementHealth(int value);
 
 	private:
 		int movementCounter;
 		b2Vec2 movementBoundaries;
-		int direction;
 		b2PolygonShape shape;
-
-		struct EnemyInfo {
-			EnemyData enemyInfo;
-			int health;
-			int damage;
-			float movement_speed;
-		} cEnemyInfo;
-
-	public:
-		EnemyInfo getEnemyInfo();
+		EnemyInfo cEnemyInfo;		
 };

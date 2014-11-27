@@ -6,6 +6,5 @@
 // Game Screen
 #include "GameScreen.h"
 
-// Menu Screens
+// Menu Screen
 #include "MenuScreen.h"
-#include "InventoryScreen.h"

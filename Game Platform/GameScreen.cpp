@@ -1,60 +1,49 @@
 #include "GameScreen.h"
 
-GameScreen::GameScreen() {
-	screenState = ScreenState::State::GAME;
+GameScreen::GameScreen(b2World &newWorld) : world(newWorld) {
+	pScreenState = ScreenState::PrimaryState::GAME_RUNNING;
+	sScreenState = ScreenState::SecondaryState::NONE;
 
 	SCALE = 30.0f;
 	TIMESTEP = 1 / 60.0f;
+
 	cameraManager = new CameraManager();
 	contactListener = new ContactListener();
-	fileManager = new FileManager();
-	hudManager = new HudManager();
 
-	player = new Player();
+	isCrafting = false;
+	isInventory = false;
+	isPaused = false;
+	isStats = false;
 }
 
-GameScreen::GameScreen(const GameScreen& copyGameloopManager) {
+GameScreen::GameScreen(const GameScreen& copyGameloopManager) : world(copyGameloopManager.world) {
+	pScreenState = copyGameloopManager.pScreenState;
+	sScreenState = copyGameloopManager.sScreenState;
+
 	SCALE = copyGameloopManager.SCALE;
 	TIMESTEP = copyGameloopManager.TIMESTEP;
+
 	cameraManager = new CameraManager();
 	*cameraManager = *copyGameloopManager.cameraManager;
 	contactListener = new ContactListener();
 	*contactListener = *copyGameloopManager.contactListener;
-	fileManager = new FileManager();
-	*fileManager = *copyGameloopManager.fileManager;
-	hudManager = new HudManager();
-	*hudManager = *copyGameloopManager.hudManager;
-	player = new Player();
-	*player = *copyGameloopManager.player;
+
+	isCrafting = copyGameloopManager.isCrafting;
+	isInventory = copyGameloopManager.isInventory;
+	isPaused = copyGameloopManager.isPaused;
+	isStats = copyGameloopManager.isStats;
 }
 
-b2World GameScreen::CreateEnvironment() {
-	b2Vec2 gravity(0.0f, 35.0f);
-
-	//TextureBackground.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/background.png");
-	//SpriteBackground.setTexture(TextureBackground);
-	//SpriteBackground.setColor(sf::Color(255, 255, 255, 255));
-	//SpriteBackground.setPosition(0.0f, 0.0f);
-
-	return b2World(gravity);
-}
-
-void GameScreen::CreateLevel(char* lfpathname, b2World &world) {
-	LevelManager::Instance().UnloadContent();
-	LevelManager::Instance().LoadContent(lfpathname, world, fileManager);
-}
-
-void GameScreen::SetCamera(Player* player) {
-	cameraManager->setCamera(player->GetBody()->GetWorldPoint(b2Vec2(0.0, 0.0)).x * 30.0f - 400, 
-							 player->GetBody()->GetWorldPoint(b2Vec2(0.0, 0.0)).y * 30.0f - 400);
-}
-
-void GameScreen::Clean() {
-	LevelManager::Instance().UnloadContent();
+GameScreen::~GameScreen() {
+	CreationManager::Instance().UnloadContent();
 	TextureManager::Instance().UnloadContent();
-	ObjectManager::Instance().UnloadContent();
-	ConsumableManager::Instance().UnloadContent();
-	EntityManager::Instance().UnloadContent();
+
+	delete inventory;
+	delete hud;
+	delete pause;
+	delete stats;
+
+	delete screenSong;
 
 	for (std::vector<Object*>::iterator it = objects.begin(); it != objects.end(); ++it) {
 		delete (*it);
@@ -68,103 +57,179 @@ void GameScreen::Clean() {
 		delete (*it);
 	}
 	entities.clear();
+
+	delete cameraManager;
+	delete contactListener;
 }
 
-ScreenState::State GameScreen::Pause(sf::RenderWindow &App) {
-	MenuScreen* menuScreen = new MenuScreen();
+ScreenState::PrimaryState GameScreen::Run(sf::RenderWindow &App) {
+	// Generate World & Level within it
+	objects = CreationManager::Instance().GetObjects(world);
+	consumables = CreationManager::Instance().GetConsumables(world);
+	entities = CreationManager::Instance().GetEntities(world);
 
-	ScreenState::State currentState = ScreenState::State::MENU;
-	while (currentState == ScreenState::State::MENU) {
-		currentState = menuScreen->Run(App);
-	}
-	delete menuScreen;
-	return currentState;
-}
-
-ScreenState::State GameScreen::Inventory(sf::RenderWindow &App) {
-	InventoryScreen* inventoryScreen = new InventoryScreen(player->getPlayerInfo());
-
-	ScreenState::State currentState = ScreenState::State::INVENTORY;
-	while (currentState == ScreenState::State::INVENTORY) {
-		currentState = inventoryScreen->Run(App);
-	}
-	delete inventoryScreen;
-	return currentState;
-}
-
-ScreenState::State GameScreen::Run(sf::RenderWindow &App) {
-	/** Generate world and player **/
-	b2World world = CreateEnvironment();
-	CreateLevel("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/LoadFiles/TestLevel2.lf", world);
-	objects = LevelManager::Instance().getObjects();
-	consumables = LevelManager::Instance().getConsumables();
-	entities = LevelManager::Instance().getEntities();
-	player = static_cast<Player*>(entities.at(0));
-
-	/** Set Song **/
-	SetMusic("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Music/Game.ogg");
+	// Generate Player & Overlays
+	Player* player = static_cast<Player*>(entities.at(0));
+	inventory = new InventoryOverlay(player);
+	stats = new StatsOverlay(player);
+	hud = new HudOverlay(player);
+	pause = new PauseOverlay();
+	
+	// Set Song
+	SetMusic(CreationManager::Instance().GetSong("main"));
 	screenSong->play();
 
-	/** Additional Game Setup **/
-	App.setKeyRepeatEnabled(true);
-	App.setView(cameraManager->getCamera());
+	// Additional Game Setup
+	App.setKeyRepeatEnabled(false);
+	App.setView(cameraManager->GetCamera());
 	world.SetContactListener(contactListener);
+	cameraManager->SetCamera(player->GetBody()->GetWorldPoint(b2Vec2(0.0, 0.0)).x * 30.0f - 400, 
+							 player->GetBody()->GetWorldPoint(b2Vec2(0.0, 0.0)).y * 30.0f - 400);
 
-	/** Game Loop **/
+	// Game Loop
 	sf::Event event;
-	SetCamera(player);
 	while (App.isOpen()) {
+		// Handle Input
 		while (App.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
-				Clean();
-				return ScreenState::State::EXITED;
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::P)) {
+			pScreenState = HandleInput(App, event, player);
+			if (pScreenState != ScreenState::PrimaryState::GAME_RUNNING) {
 				screenSong->stop();
-				ScreenState::State state = Pause(App);
-				if (state != ScreenState::State::GAME) {
-					return state;
-				}
+				return pScreenState;
+			}
+		}
+		// World Step & Updates if not paused
+		if (!isPaused) {
+			// Update Passives on Entities
+			for (std::vector<Entity*>::iterator it = entities.begin(); it != entities.end(); ++it) {
+				(*it)->UpdatePassive();
+			}
+			// Update Overlays (excluding pause)
+			hud->Update();
+			inventory->Update();
+			//crafting->Update();
+			stats->Update();
+
+			// Execute World Step
+			world.Step(TIMESTEP, 8, 3);
+		}
+		// Draw Background
+		// App.setView(App.getDefaultView());
+		// App.draw(SpriteBackground);
+
+		// Reset Camera, and Set Modified View (fixed to player position)
+		cameraManager->SetCamera(player->GetBody()->GetWorldPoint(b2Vec2(0.0, 0.0)).x * 30.0f - 400, 
+								 player->GetBody()->GetWorldPoint(b2Vec2(0.0, 0.0)).y * 30.0f - 400);
+		App.setView(cameraManager->GetCamera());
+
+		// Draw or Delete Elements (depending on isDead status)
+		DrawOrDeleteElements(App);
+
+		// Set to draw relative to screen
+		App.setView(App.getDefaultView());
+
+		// Draw Overlays
+		DrawOverlays(App);
+
+		// Open Door Animation (if necessary)
+		if (pause->GetAnimationDelay() > 0) {
+			pause->OpenAnimation(App);
+		}
+
+		//Display
+		App.display();
+	}
+	// Close gracefully if loop somehow terminated
+	screenSong->stop();
+	return ScreenState::PrimaryState::EXITED;
+}
+
+ScreenState::PrimaryState GameScreen::HandleInput(sf::RenderWindow &App, sf::Event event, Player* player) {
+	if (event.type == sf::Event::Closed) {
+		return ScreenState::PrimaryState::EXITED;
+	}
+	if (event.type == sf::Event::KeyPressed) {
+		if (isPaused) {
+			sScreenState = pause->Update(event);
+			if (sScreenState == ScreenState::SecondaryState::QUIT) {
+				return ScreenState::PrimaryState::MAIN_MENU;
+			}
+			if (sScreenState != ScreenState::SecondaryState::PAUSED) {
+				sScreenState = ScreenState::SecondaryState::NONE;
+				isPaused = !isPaused;
+				pause->SetAnimationDelay(25);
 				screenSong->play();
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::I)) {
-				ScreenState::State state = Inventory(App);
-				if (state != ScreenState::State::GAME) {
-					return state;
-				}
+		}
+		else {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::P)) {
+				InputPause(App);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
+				InputInventory();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) {
+				InputCrafting();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::X)) {
+				InputStats();
 			}
 			player->Update(event);
 		}
-		//Update Passives on Entities
-		for (std::vector<Entity*>::iterator it = entities.begin(); it != entities.end(); ++it) {
-			(*it)->UpdatePassive();
-		}
-		//Update HUD
-		hudManager->Update(player);
-
-		//World Step
-		world.Step(TIMESTEP, 8, 3);
-		
-		//Draw
-		Draw(App);
 	}
-	Clean();
-	return ScreenState::State::EXITED;
+	if (event.type == sf::Event::KeyReleased && !isPaused) {
+		player->Update(event);
+	}
+	return ScreenState::PrimaryState::GAME_RUNNING;
 }
 
-void GameScreen::Draw(sf::RenderWindow &App) {
-	//Clear Window
+void GameScreen::InputPause(sf::RenderWindow &App) {
+	sScreenState = ScreenState::SecondaryState::PAUSED;
+	screenSong->pause();
+	pause->CloseAnimation(App);
+	isPaused = !isPaused;
+}
+
+void GameScreen::InputInventory() {
+	if (!isInventory) {
+		sScreenState = ScreenState::SecondaryState::INVENTORY;
+	}
+	else {
+		sScreenState = ScreenState::SecondaryState::NONE;
+	}
+	isInventory = !isInventory;
+	isCrafting = false;
+	isStats = false;
+}
+
+void GameScreen::InputCrafting() {
+	if (!isCrafting) {
+		sScreenState = ScreenState::SecondaryState::CRAFTING;
+	}
+	else {
+		sScreenState = ScreenState::SecondaryState::NONE;
+	}
+	isCrafting = !isCrafting;
+	isInventory = false;
+	isStats = false;
+}
+
+void GameScreen::InputStats() {
+	if (!isStats) {
+		sScreenState = ScreenState::SecondaryState::STATS;
+	}
+	else {
+		sScreenState = ScreenState::SecondaryState::NONE;
+	}
+	isStats = !isStats;
+	isCrafting = false;
+	isInventory = false;
+}
+
+void GameScreen::DrawOrDeleteElements(sf::RenderWindow &App) {
+	// Clear Window
 	App.clear(sf::Color::White);
 
-	//Draw Background
-	//App.setView(App.getDefaultView());
-	//App.draw(SpriteBackground);
-
-	//Reset Camera, and Set Modified View
-	SetCamera(player);
-	App.setView(cameraManager->getCamera());
-
-	//Draw Objects
+	// Draw Objects
 	for (std::vector<Object*>::iterator it = objects.begin(); it != objects.end();) {
 		if ((*it)->GetIsDead()) {
 			delete (*it);
@@ -176,7 +241,7 @@ void GameScreen::Draw(sf::RenderWindow &App) {
 		}
 	}
 
-	//Draw Consumables
+	// Draw Consumables
 	for (std::vector<Consumable*>::iterator it = consumables.begin(); it != consumables.end();) {
 		if ((*it)->GetIsDead()) {
 			delete (*it);
@@ -188,7 +253,7 @@ void GameScreen::Draw(sf::RenderWindow &App) {
 		}
 	}
 
-	//Draw Entities
+	// Draw Entities
 	for (std::vector<Entity*>::iterator it = entities.begin(); it != entities.end();) {
 		if ((*it)->GetIsDead()) {
 			delete (*it);
@@ -199,11 +264,29 @@ void GameScreen::Draw(sf::RenderWindow &App) {
 			 ++it;
 		}
 	}
+}
 
-	//Draw HUD
-	App.setView(App.getDefaultView());
-	hudManager->Draw(App);
+void GameScreen::DrawOverlays(sf::RenderWindow &App) {
+	// Draw HUD
+	hud->Draw(App);
+	
+	// Draw Inventory (if selected)
+	if (isInventory) {
+		inventory->Draw(App);
+	}
+	
+	// Draw Crafting (if selected)
+	if (isCrafting) {
+		//crafting->Draw(App);
+	}
 
-	//Display
-	App.display();
+	// Draw Stats (if selected)
+	if (isStats) {
+		stats->Draw(App);
+	}
+
+	// Draw Pause Menu (if active)
+	if (isPaused) {
+		pause->Draw(App);
+	}
 }

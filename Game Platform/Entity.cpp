@@ -2,18 +2,7 @@
 
 Entity::Entity() : Cell() {
 	type = EntityData::entity_type::NONE;
-}
-
-void Entity::Initialize(b2World& world, b2Vec2 position) {
-	//OVERRIDE ME
-}
-
-void Entity::Update(sf::Event event) {
-	//OVERRIDE ME
-}
-
-void Entity::UpdatePassive() {
-	//OVERRIDE ME
+	direction = Entity::Direction::NONE;
 }
 
 EntityData::entity_type Entity::GetType() {

@@ -6,8 +6,8 @@ class CameraManager {
 	public:
 		CameraManager();
 
-		void setCamera(float x, float y);
-		sf::View getCamera();
+		void SetCamera(float x, float y);
+		sf::View GetCamera();
 
 	private:
 		sf::View camera;

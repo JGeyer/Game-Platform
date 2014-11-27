@@ -1,11 +1,18 @@
 #pragma once
 
 struct ScreenState {
-	enum State {
-		NONE,
-		MENU,
-		GAME,
-		INVENTORY,
+	enum PrimaryState {
+		BASE,
+		MAIN_MENU,
+		GAME_RUNNING,
 		EXITED
+	};
+	enum SecondaryState {
+		NONE,
+		CRAFTING,
+		INVENTORY,
+		STATS,
+		PAUSED,
+		QUIT
 	};
 };

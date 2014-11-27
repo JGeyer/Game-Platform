@@ -54,5 +54,6 @@ class ContactListener : public b2ContactListener {
 				}
 			}
 		}
+
 		ContactHandler contactHandler;
 };

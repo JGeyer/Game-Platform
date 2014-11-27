@@ -1,6 +1,8 @@
 #pragma once
 
-// Objects
+// Object Base
 #include "Object.h"
+
+// Basic
 #include "Box.h"
 #include "Circle.h"

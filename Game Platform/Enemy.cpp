@@ -1,17 +1,13 @@
 #include "Enemy.h"
 
-Enemy::Enemy(EnemyData::enemy_type type, EnemyData::enemy_rank rank) : Entity() {
+Enemy::Enemy(EnemyInfo::EnemyData::enemy_type type, EnemyInfo::EnemyData::enemy_rank rank) : Entity() {
 	this->type = EntityData::entity_type::ENEMY;
+	direction = Entity::Direction::LEFT;
 
 	movementCounter = 0;
 	movementBoundaries = b2Vec2(0, 100);
-	direction = 0;
 
-	cEnemyInfo.enemyInfo.enemyType = type;
-	cEnemyInfo.enemyInfo.enemyRank = rank;
-	cEnemyInfo.health = 100;
-	cEnemyInfo.damage = 20;
-	cEnemyInfo.movement_speed = 6.0f;
+	cEnemyInfo = EnemyInfo(100, 20, 6.0f, type, rank);
 }
 
 void Enemy::Initialize(b2World& world, b2Vec2 position) {
@@ -33,6 +29,7 @@ void Enemy::Initialize(b2World& world, b2Vec2 position) {
 	vs[2].Set(vs2.x, vs2.y);
 	vs[3].Set(vs3.x, vs3.y);
 	shape.Set(vs, 4);
+	delete vs;
 
 	fixtureDef.density = 1.0f;
 	fixtureDef.friction = 0.0f;
@@ -53,13 +50,13 @@ void Enemy::Update(sf::Event event) {
 void Enemy::UpdatePassive() {
 	b2Vec2 vel = body->GetLinearVelocity();
 	
-	if (direction == 0) {
+	if (direction == Entity::Direction::LEFT) {
 		if (movementCounter < movementBoundaries.y) {
 			movementCounter++;
 			vel.x = cEnemyInfo.movement_speed;
 		}
 		else {
-			direction = 1;
+			direction = Entity::Direction::RIGHT;
 			vel.x = 0.0f;
 		}
 	}
@@ -69,7 +66,7 @@ void Enemy::UpdatePassive() {
 			vel.x = -cEnemyInfo.movement_speed;
 		}
 		else {
-			direction = 0;
+			direction = Entity::Direction::LEFT;
 			vel.x = 0.0f;
 		}
 	}
@@ -77,7 +74,7 @@ void Enemy::UpdatePassive() {
 	body->SetAwake(true);
 }
 
-Enemy::EnemyInfo Enemy::getEnemyInfo() {
+EnemyInfo Enemy::GetEnemyInfo() {
 	return cEnemyInfo;
 }
 

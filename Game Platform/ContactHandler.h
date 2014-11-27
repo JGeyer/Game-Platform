@@ -18,16 +18,16 @@ class ContactHandler {
 			material->SetIsDead(true);
 			Player* player = static_cast<Player*>(playerData->data);
 			if (material->mat_type == MaterialData::material_type::COPPER) {
-				player->addResource(MaterialData::material_type::COPPER, 1);
+				player->AddResource(MaterialData::material_type::COPPER, 1);
 			}
 			if (material->mat_type == MaterialData::material_type::IRON) {
-				player->addResource(MaterialData::material_type::IRON, 1);
+				player->AddResource(MaterialData::material_type::IRON, 1);
 			}
 			if (material->mat_type == MaterialData::material_type::CARBON) {
-				player->addResource(MaterialData::material_type::CARBON, 1);
+				player->AddResource(MaterialData::material_type::CARBON, 1);
 			}
 			if (material->mat_type == MaterialData::material_type::ZINC) {
-				player->addResource(MaterialData::material_type::ZINC, 1);
+				player->AddResource(MaterialData::material_type::ZINC, 1);
 			}
 		}
 
@@ -35,7 +35,7 @@ class ContactHandler {
 			Player* player = static_cast<Player*>(playerData->data);
 			Enemy* enemy = static_cast<Enemy*>(enemyData->data);
 
-			int damage = enemy->getEnemyInfo().damage;
+			int damage = enemy->GetEnemyInfo().damage;
 			player->DecrementHealth(damage);
 			player->Knockback(enemy->GetBody()->GetPosition());
 		}

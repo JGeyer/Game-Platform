@@ -2,13 +2,14 @@
 
 Player::Player() : Entity() {
 	this->type = EntityData::entity_type::PLAYER;
+	direction = Direction::LEFT;
+
 	hasControl = 0;
 	hasImmunity = 0;
+	cPlayerInfo = PlayerInfo();
 }
 
 void Player::Initialize(b2World& world, b2Vec2 position) {
-	cPlayerInfo = new PlayerInfo();
-
 	bodyDef.position = position;
 	bodyDef.type = b2_dynamicBody;
 	bodyDef.fixedRotation = true;
@@ -27,6 +28,7 @@ void Player::Initialize(b2World& world, b2Vec2 position) {
 	vs[2].Set(vs2.x, vs2.y);
 	vs[3].Set(vs3.x, vs3.y);
 	shape.Set(vs, 4);
+	delete vs;
 
 	b2PolygonShape footSensor;
 	footSensor.SetAsBox(0.025f * 30.0f, 0.033f * 3.0f, b2Vec2(0, 1.33f), 0);
@@ -53,39 +55,21 @@ void Player::Initialize(b2World& world, b2Vec2 position) {
 }
 
 void Player::Update(sf::Event event) {
-	if (hasControl == 0) {
-		float impulse_x = 0.0f;
-		float impulse_y = 0.0f;
-		float desiredVel = 0.0f;
-
-		float mass = body->GetMass();
-		b2Vec2 vel = body->GetLinearVelocity();
-
-		// X Velocity Impulse Calculation
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-			desiredVel = 0.0f;
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-			sprite.setScale(1, 1);
-			desiredVel = cPlayerInfo->movement_speed;
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-			sprite.setScale(-1, 1);
-			desiredVel = -cPlayerInfo->movement_speed;
-		}
-		else {
-			desiredVel = 0.0f;
-		}
-		float velChange = desiredVel - vel.x;
-		impulse_x = mass * velChange;
-
-		// Y Velocity Impulse Calculation (todo: identify true issue to AND statement)
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && (int)vel.y == 0) {
-			if (cPlayerInfo->footContacts > 0) {
-				impulse_y = -(mass * cPlayerInfo->jump_speed);
-			}
-		}
-		body->ApplyLinearImpulse(b2Vec2(impulse_x, impulse_y), body->GetWorldCenter(), true);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+		StopMove();
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+		Move(Entity::Direction::LEFT);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+		Move(Entity::Direction::RIGHT);
+	}
+	else {
+		StopMove();
+	}
+	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
+		Jump();
 	}
 }
 
@@ -107,6 +91,51 @@ void Player::UpdatePassive() {
 	}
 }
 
+void Player::Move(Entity::Direction direction) {
+	if (hasControl == 0) {
+		this->direction = direction;
+		float impulse_x = 0.0f;
+		float desiredVel = 0.0f;
+
+		float mass = body->GetMass();
+		b2Vec2 vel = body->GetLinearVelocity();
+
+		// X Velocity Impulse Calculation
+		if (direction == Entity::Direction::LEFT) {
+			sprite.setScale(-1, 1);
+			desiredVel = -cPlayerInfo.movement_speed;
+		}
+		if (direction == Entity::Direction::RIGHT) {
+			sprite.setScale(1, 1);
+			desiredVel = cPlayerInfo.movement_speed;
+		}
+		float velChange = desiredVel - vel.x;
+		impulse_x = mass * velChange;
+
+		body->ApplyLinearImpulse(b2Vec2(impulse_x, 0.0f), body->GetWorldCenter(), true);
+	}
+}
+
+void Player::StopMove() {
+	float mass = body->GetMass();
+	b2Vec2 vel = body->GetLinearVelocity();
+	float velChange = 0.0f - vel.x;
+	float impulse_x = mass * velChange;
+	body->ApplyLinearImpulse(b2Vec2(impulse_x, 0.0f), body->GetWorldCenter(), true);
+}
+
+void Player::Jump() {
+	float impulse_y = 0.0f;
+	float mass = body->GetMass();
+	b2Vec2 vel = body->GetLinearVelocity();
+
+	// Y Velocity Impulse Calculation (todo: identify true issue to AND statement)
+	if ((cPlayerInfo.footContacts > 0) && (int)vel.y == 0) {
+		impulse_y = -(mass * cPlayerInfo.jump_speed);
+	}
+	body->ApplyLinearImpulse(b2Vec2(0.0f, impulse_y), body->GetWorldCenter(), true);
+}
+
 void Player::Knockback(b2Vec2 otherPosition) {
 	hasControl = 30;
 	b2Vec2 vel = body->GetLinearVelocity();
@@ -125,25 +154,25 @@ void Player::Knockback(b2Vec2 otherPosition) {
 }
 
 void Player::setMovementSpeed(float speed) {
-	cPlayerInfo->movement_speed = speed;
+	cPlayerInfo.movement_speed = speed;
 }
 
 void Player::setJumpSpeed(float speed) {
-	cPlayerInfo->jump_speed = speed;
+	cPlayerInfo.jump_speed = speed;
 }
 
 void Player::IncrementFootContacts() {
-	cPlayerInfo->footContacts += 1;
+	cPlayerInfo.footContacts += 1;
 }
 
 void Player::DecrementFootContacts() {
-	cPlayerInfo->footContacts -= 1;
+	cPlayerInfo.footContacts -= 1;
 }
 
 void Player::IncrementHealth(int value) {
-	cPlayerInfo->health += value;
-	if (cPlayerInfo->health > 100) {
-		cPlayerInfo->health = 100;
+	cPlayerInfo.health += value;
+	if (cPlayerInfo.health > 100) {
+		cPlayerInfo.health = 100;
 	}
 }
 
@@ -151,33 +180,29 @@ void Player::DecrementHealth(int value) {
 	if (hasImmunity == 0) {
 		hasImmunity = 100;
 		sprite.setColor(sf::Color::Red);
-		cPlayerInfo->health -= value;
-		if (cPlayerInfo->health <= 0) {
-			cPlayerInfo->health = 0;
+		cPlayerInfo.health -= value;
+		if (cPlayerInfo.health <= 0) {
+			cPlayerInfo.health = 0;
 			//isDead = true;
 		}
 	}
 }
 
-void Player::addResource(MaterialData::material_type material_type, int value) {
+void Player::AddResource(MaterialData::material_type material_type, int value) {
 	if (material_type == MaterialData::material_type::COPPER) {
-		cPlayerInfo->copper += value;
+		cPlayerInfo.inventory.copper += value;
 	}
 	if (material_type == MaterialData::material_type::IRON) {
-		cPlayerInfo->iron += value;
+		cPlayerInfo.inventory.iron += value;
 	}
 	if (material_type == MaterialData::material_type::CARBON) {
-		cPlayerInfo->carbon += value;
+		cPlayerInfo.inventory.carbon += value;
 	}
 	if (material_type == MaterialData::material_type::ZINC) {
-		cPlayerInfo->zinc += value;
+		cPlayerInfo.inventory.zinc += value;
 	}
 }
 
-void Player::subCopper(int value) {
-	cPlayerInfo->copper -= value;
-}
-
-PlayerInfo* Player::getPlayerInfo() {
+PlayerInfo Player::getPlayerInfo() {
 	return cPlayerInfo;
 }
