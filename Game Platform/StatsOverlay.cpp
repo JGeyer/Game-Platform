@@ -12,15 +12,15 @@ StatsOverlay::StatsOverlay(Player* player) : BaseOverlay() {
 	sf::String invString;
 	char invVal[10];
 
-	sprintf_s(invVal, "%i", this->player->getPlayerInfo().max_health);
+	sprintf_s(invVal, "%i", this->player->GetPlayerInfo().max_health);
 	invString = sf::String(invVal);
 	SetupStatEntry(&statEntry1, sf::Vector2f(180.0f, 25.0f), 310.0f, 260.0f, &textHealth, "Max HP: " + invString, sf::Vector2f(315.0f, 262.5f));
 
-	sprintf_s(invVal, "%i", (int)this->player->getPlayerInfo().movement_speed);
+	sprintf_s(invVal, "%i", (int)this->player->GetPlayerInfo().movement_speed);
 	invString = sf::String(invVal);
 	SetupStatEntry(&statEntry2, sf::Vector2f(180.0f, 25.0f), 310.0f, 290.0f, &textSpeed, "Movespeed: " + invString, sf::Vector2f(315.0f, 292.5f));
 
-	sprintf_s(invVal, "%i", (int)this->player->getPlayerInfo().jump_speed);
+	sprintf_s(invVal, "%i", (int)this->player->GetPlayerInfo().jump_speed);
 	invString = sf::String(invVal);
 	SetupStatEntry(&statEntry3, sf::Vector2f(180.0f, 25.0f), 310.0f, 320.0f, &textJump, "Jump Str: " + invString, sf::Vector2f(315.0f, 322.5f));
 }
@@ -41,15 +41,15 @@ void StatsOverlay::Update() {
 	sf::String invString;
 	char invVal[10];
 
-	sprintf_s(invVal, "%i", player->getPlayerInfo().max_health);
+	sprintf_s(invVal, "%i", player->GetPlayerInfo().max_health);
 	invString = sf::String(invVal);
 	textHealth.setString("Max HP: " + invString);
 
-	sprintf_s(invVal, "%i", (int)player->getPlayerInfo().movement_speed);
+	sprintf_s(invVal, "%i", (int)player->GetPlayerInfo().movement_speed);
 	invString = sf::String(invVal);
 	textSpeed.setString("Movespeed: " + invString);
 
-	sprintf_s(invVal, "%i", (int)player->getPlayerInfo().jump_speed);
+	sprintf_s(invVal, "%i", (int)player->GetPlayerInfo().jump_speed);
 	invString = sf::String(invVal);
 	textJump.setString("Jump Str: " + invString);
 }

@@ -7,6 +7,7 @@
 #include "Object.h"
 #include "Box.h"
 #include "Circle.h"
+#include "Bullet.h"
 
 // Consumables
 #include "Consumable.h"

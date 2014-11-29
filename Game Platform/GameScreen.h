@@ -19,6 +19,7 @@ class GameScreen : public BaseScreen {
 				void InputInventory();
 				void InputCrafting();
 				void InputStats();
+				void InputShooting(Player* player);
 			void DrawOrDeleteElements(sf::RenderWindow &App);
 			void DrawOverlays(sf::RenderWindow &App);
 
@@ -42,4 +43,5 @@ class GameScreen : public BaseScreen {
 		std::vector<Object*> objects;
 		std::vector<Consumable*> consumables;
 		std::vector<Entity*> entities;
+		std::vector<Bullet*> bullets;
 };

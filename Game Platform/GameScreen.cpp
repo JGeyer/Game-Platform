@@ -100,8 +100,12 @@ ScreenState::PrimaryState GameScreen::Run(sf::RenderWindow &App) {
 		// World Step & Updates if not paused
 		if (!isPaused) {
 			// Update Passives on Entities
-			for (std::vector<Entity*>::iterator it = entities.begin(); it != entities.end(); ++it) {
-				(*it)->UpdatePassive();
+			for (std::vector<Entity*>::iterator eit = entities.begin(); eit != entities.end(); ++eit) {
+				(*eit)->UpdatePassive();
+			}
+			// Update Onscreen Bullets
+			for (std::vector<Bullet*>::iterator bit = bullets.begin(); bit != bullets.end(); ++bit) {
+				(*bit)->Update(event);
 			}
 			// Update Overlays (excluding pause)
 			hud->Update();
@@ -173,6 +177,9 @@ ScreenState::PrimaryState GameScreen::HandleInput(sf::RenderWindow &App, sf::Eve
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::X)) {
 				InputStats();
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
+				InputShooting(player);
+			}
 			player->Update(event);
 		}
 	}
@@ -225,43 +232,75 @@ void GameScreen::InputStats() {
 	isInventory = false;
 }
 
+void GameScreen::InputShooting(Player* player) {
+	Bullet* bullet = new Bullet();
+	Cell::Direction direction = player->direction;
+	float x, y;
+	if (direction == Cell::Direction::LEFT) {
+		x = player->GetBody()->GetPosition().x - (35.0f / 30.0f);
+		y = player->GetBody()->GetPosition().y;
+	}
+	else {
+		x = player->GetBody()->GetPosition().x + (35.0f / 30.0f);
+		y = player->GetBody()->GetPosition().y;
+	}
+	bullet->Initialize(world, b2Vec2(x, y), direction, 20.0f, player->GetPlayerInfo().damage);
+
+	sf::Texture textureBullet;
+	textureBullet.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/bullet.png");
+	bullet->LoadContent(textureBullet, b2Vec2(2.5f / 30.0f,  2.5f / 30.0f));
+	bullets.push_back(bullet);
+}
+
 void GameScreen::DrawOrDeleteElements(sf::RenderWindow &App) {
 	// Clear Window
 	App.clear(sf::Color::White);
 
 	// Draw Objects
-	for (std::vector<Object*>::iterator it = objects.begin(); it != objects.end();) {
-		if ((*it)->GetIsDead()) {
-			delete (*it);
-			it = objects.erase(it);
+	for (std::vector<Object*>::iterator oit = objects.begin(); oit != objects.end();) {
+		if ((*oit)->GetIsDead()) {
+			delete (*oit);
+			oit = objects.erase(oit);
 		}
 		else {
-			(*it)->Draw(App);
-			 ++it;
+			(*oit)->Draw(App);
+			 ++oit;
 		}
 	}
 
 	// Draw Consumables
-	for (std::vector<Consumable*>::iterator it = consumables.begin(); it != consumables.end();) {
-		if ((*it)->GetIsDead()) {
-			delete (*it);
-			it = consumables.erase(it);
+	for (std::vector<Consumable*>::iterator cit = consumables.begin(); cit != consumables.end();) {
+		if ((*cit)->GetIsDead()) {
+			delete (*cit);
+			cit = consumables.erase(cit);
 		}
 		else {
-			(*it)->Draw(App);
-			 ++it;
+			(*cit)->Draw(App);
+			 ++cit;
 		}
 	}
 
 	// Draw Entities
-	for (std::vector<Entity*>::iterator it = entities.begin(); it != entities.end();) {
-		if ((*it)->GetIsDead()) {
-			delete (*it);
-			it = entities.erase(it);
+	for (std::vector<Entity*>::iterator eit = entities.begin(); eit != entities.end();) {
+		if ((*eit)->GetIsDead()) {
+			delete (*eit);
+			eit = entities.erase(eit);
 		}
 		else {
-			(*it)->Draw(App);
-			 ++it;
+			(*eit)->Draw(App);
+			 ++eit;
+		}
+	}
+
+	// Draw Bullets
+	for (std::vector<Bullet*>::iterator bit = bullets.begin(); bit != bullets.end();) {
+		if ((*bit)->GetIsDead()) {
+			delete (*bit);
+			bit = bullets.erase(bit);
+		}
+		else {
+			(*bit)->Draw(App);
+			 ++bit;
 		}
 	}
 }

@@ -10,14 +10,15 @@ class Player : public Entity {
 		void Initialize(b2World& world, b2Vec2 position);
 		void Update(sf::Event event);
 		void UpdatePassive();
+
 		void Move(Entity::Direction direction);
 		void StopMove();
 		void Jump();
 
-		PlayerInfo getPlayerInfo();
+		PlayerInfo GetPlayerInfo();
 		void Knockback(b2Vec2 otherPosition);
-		void setMovementSpeed(float speed);
-		void setJumpSpeed(float speed);
+		void SetMovementSpeed(float speed);
+		void SetJumpSpeed(float speed);
 
 		void IncrementFootContacts();
 		void DecrementFootContacts();

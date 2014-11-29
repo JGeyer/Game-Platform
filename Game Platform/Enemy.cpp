@@ -48,6 +48,13 @@ void Enemy::Update(sf::Event event) {
 }
 
 void Enemy::UpdatePassive() {
+	if (tookDamage > 0) {
+		--tookDamage;
+		if (tookDamage == 0) {
+			sprite.setColor(sf::Color::White);
+		}
+	}
+
 	b2Vec2 vel = body->GetLinearVelocity();
 	
 	if (direction == Entity::Direction::LEFT) {
@@ -87,6 +94,8 @@ void Enemy::IncrementHealth(int value) {
 
 void Enemy::DecrementHealth(int value) {
 	cEnemyInfo.health -= value;
+	sprite.setColor(sf::Color::Red);
+	tookDamage = 5;
 	if (cEnemyInfo.health <= 0) {
 		cEnemyInfo.health = 0;
 		isDead = true;

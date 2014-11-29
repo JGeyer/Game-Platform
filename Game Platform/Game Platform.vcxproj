@@ -167,6 +167,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Consumable.cpp" />
@@ -193,6 +194,7 @@
   <ItemGroup>
     <ClInclude Include="BaseScreen.h" />
     <ClInclude Include="BaseOverlay.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Consumable.h" />

@@ -140,6 +140,9 @@
     <Filter Include="Manager Files\Creation">
       <UniqueIdentifier>{7fa2b3ef-b629-4a59-b7c5-f3ee2f3fb3ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="On Screen Elements\Objects\Bullet">
+      <UniqueIdentifier>{a2227d09-ae34-442c-bd66-e06c0a6684a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Convert.cpp">
@@ -205,6 +208,9 @@
     </ClCompile>
     <ClCompile Include="CreationManager.cpp">
       <Filter>Manager Files\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>On Screen Elements\Objects\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -327,6 +333,9 @@
     </ClInclude>
     <ClInclude Include="EnemyInfo.h">
       <Filter>On Screen Elements\Entities\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>On Screen Elements\Objects\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

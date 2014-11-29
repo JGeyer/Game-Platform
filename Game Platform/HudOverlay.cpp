@@ -26,7 +26,7 @@ void HudOverlay::InitializeBar(sf::RectangleShape* bar, sf::Vector2f size, sf::C
 }
 
 void HudOverlay::Update() {
-	int health = player->getPlayerInfo().health;
+	int health = player->GetPlayerInfo().health;
 
 	healthText.setString("HP: ");
 	if (health < 25) {

@@ -13,11 +13,13 @@ class Cell {
 		void LoadContent(sf::Texture texture, b2Vec2 origin);
 		void UnloadContent() {};
 		virtual void Update(sf::Event event) {};
-		void Draw(sf::RenderWindow &window);
+		void Draw(sf::RenderWindow &App);
 
 		b2Body* GetBody();
 		void SetIsDead(bool isDead);
 		bool GetIsDead();
+
+		enum Direction { NONE, LEFT, RIGHT, UP, DOWN } direction;
 
 	protected:
 		b2Body* body;

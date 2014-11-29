@@ -16,8 +16,6 @@ class Entity : public Cell {
 		EntityData::entity_type GetType();
 		void SetType(EntityData::entity_type type);
 
-		enum Direction { NONE, LEFT, RIGHT, UP, DOWN } direction;
-
 	protected:
 		EntityData::entity_type type;	
 };

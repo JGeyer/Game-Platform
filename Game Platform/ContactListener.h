@@ -18,6 +18,14 @@ class ContactListener : public b2ContactListener {
 				if (fixtureUserData_B->type == ContactUserData::Type::FOOT_SENSOR) {
      				contactHandler.PlayerContactedSurface(fixtureUserData_B);
 				}
+				//check if bullet touched something
+				if (fixtureUserData_A->type == ContactUserData::Type::BULLET) {
+					contactHandler.BulletMadeImpact(fixtureUserData_A, fixtureUserData_B);
+				}
+				if (fixtureUserData_B->type == ContactUserData::Type::BULLET) {
+					contactHandler.BulletMadeImpact(fixtureUserData_B, fixtureUserData_A);
+				}
+
 				//check if the player touched a material
 				if (fixtureUserData_A->type == ContactUserData::Type::MATERIAL &&
 					fixtureUserData_B->type == ContactUserData::Type::PLAYER) {

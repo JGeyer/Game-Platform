@@ -2,6 +2,7 @@
 
 struct PlayerInfo {
 	int health;
+	int damage;
 	int max_health;
 	float movement_speed, jump_speed;
 	int footContacts;
@@ -11,6 +12,7 @@ struct PlayerInfo {
 
 	PlayerInfo() {
 		health = 100;
+		damage = 20;
 		max_health = 100;
 		inventory.copper = 0;
 		inventory.iron = 0;

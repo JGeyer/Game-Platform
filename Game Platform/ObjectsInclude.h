@@ -6,3 +6,6 @@
 // Basic
 #include "Box.h"
 #include "Circle.h"
+
+// Bullets
+#include "Bullet.h"

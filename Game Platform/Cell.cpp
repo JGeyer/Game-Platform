@@ -20,12 +20,12 @@ void Cell::LoadContent(sf::Texture texture, b2Vec2 origin) {
 	this->origin = origin;
 }
 
-void Cell::Draw(sf::RenderWindow &window) {
+void Cell::Draw(sf::RenderWindow &App) {
 	sprite.setTexture(texture);
 	sprite.setOrigin(origin.x, origin.y);
 	sprite.setPosition(body->GetPosition().x * 30.0f,  body->GetPosition().y * 30.0f);
 	sprite.setRotation(body->GetAngle() * 180 / b2_pi);
-	window.draw(sprite);
+	App.draw(sprite);
 }
 
 b2Body* Cell::GetBody() {

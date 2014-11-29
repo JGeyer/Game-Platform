@@ -4,6 +4,7 @@ struct ContactUserData {
 	enum Type {
 		ANIMATE,
 		INANIMATE,
+		BULLET,
 		PLAYER,
 		FOOT_SENSOR,
 		MATERIAL,

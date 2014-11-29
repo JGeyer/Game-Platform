@@ -17,6 +17,7 @@ class Enemy : public Entity {
 	private:
 		int movementCounter;
 		b2Vec2 movementBoundaries;
+		int tookDamage;
 		b2PolygonShape shape;
 		EnemyInfo cEnemyInfo;		
 };

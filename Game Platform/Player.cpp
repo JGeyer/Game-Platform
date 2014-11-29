@@ -31,7 +31,7 @@ void Player::Initialize(b2World& world, b2Vec2 position) {
 	delete vs;
 
 	b2PolygonShape footSensor;
-	footSensor.SetAsBox(0.025f * 30.0f, 0.033f * 3.0f, b2Vec2(0, 1.33f), 0);
+	footSensor.SetAsBox(0.025f * 30.0f, 0.0033f * 30.0f, b2Vec2(0, 1.33f), 0);
 	b2FixtureDef footFixtureDef;
 	footFixtureDef.density = 1.0f;
 	footFixtureDef.shape = &footSensor;
@@ -47,6 +47,7 @@ void Player::Initialize(b2World& world, b2Vec2 position) {
 	cud->type = ContactUserData::Type::PLAYER;
 	cud->data = this;
 	playerSensorFixture->SetUserData(cud);
+
 	b2Fixture* footSensorFixture = body->CreateFixture(&footFixtureDef);
 	cud = new ContactUserData();
 	cud->type = ContactUserData::Type::FOOT_SENSOR;
@@ -59,16 +60,16 @@ void Player::Update(sf::Event event) {
 		StopMove();
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-		Move(Entity::Direction::LEFT);
+		Move(Cell::Direction::LEFT);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-		Move(Entity::Direction::RIGHT);
+		Move(Cell::Direction::RIGHT);
 	}
 	else {
 		StopMove();
 	}
 	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
 		Jump();
 	}
 }
@@ -91,7 +92,7 @@ void Player::UpdatePassive() {
 	}
 }
 
-void Player::Move(Entity::Direction direction) {
+void Player::Move(Cell::Direction direction) {
 	if (hasControl == 0) {
 		this->direction = direction;
 		float impulse_x = 0.0f;
@@ -101,11 +102,11 @@ void Player::Move(Entity::Direction direction) {
 		b2Vec2 vel = body->GetLinearVelocity();
 
 		// X Velocity Impulse Calculation
-		if (direction == Entity::Direction::LEFT) {
+		if (direction == Cell::Direction::LEFT) {
 			sprite.setScale(-1, 1);
 			desiredVel = -cPlayerInfo.movement_speed;
 		}
-		if (direction == Entity::Direction::RIGHT) {
+		if (direction == Cell::Direction::RIGHT) {
 			sprite.setScale(1, 1);
 			desiredVel = cPlayerInfo.movement_speed;
 		}
@@ -136,6 +137,10 @@ void Player::Jump() {
 	body->ApplyLinearImpulse(b2Vec2(0.0f, impulse_y), body->GetWorldCenter(), true);
 }
 
+PlayerInfo Player::GetPlayerInfo() {
+	return cPlayerInfo;
+}
+
 void Player::Knockback(b2Vec2 otherPosition) {
 	hasControl = 30;
 	b2Vec2 vel = body->GetLinearVelocity();
@@ -153,11 +158,11 @@ void Player::Knockback(b2Vec2 otherPosition) {
 	body->SetAwake(true);
 }
 
-void Player::setMovementSpeed(float speed) {
+void Player::SetMovementSpeed(float speed) {
 	cPlayerInfo.movement_speed = speed;
 }
 
-void Player::setJumpSpeed(float speed) {
+void Player::SetJumpSpeed(float speed) {
 	cPlayerInfo.jump_speed = speed;
 }
 
@@ -201,8 +206,4 @@ void Player::AddResource(MaterialData::material_type material_type, int value) {
 	if (material_type == MaterialData::material_type::ZINC) {
 		cPlayerInfo.inventory.zinc += value;
 	}
-}
-
-PlayerInfo Player::getPlayerInfo() {
-	return cPlayerInfo;
 }

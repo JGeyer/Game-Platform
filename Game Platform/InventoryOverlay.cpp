@@ -12,19 +12,19 @@ InventoryOverlay::InventoryOverlay(Player* player) : BaseOverlay() {
 	sf::String invString;
 	char invVal[10];
 
-	sprintf_s(invVal, "%i", this->player->getPlayerInfo().inventory.copper);
+	sprintf_s(invVal, "%i", this->player->GetPlayerInfo().inventory.copper);
 	invString = sf::String(invVal);
 	SetupInventoryEntry(&inventoryEntry1, sf::Vector2f(180.0f, 25.0f), 310.0f, 210.0f, &textCopper, "Copper: " + invString, sf::Vector2f(315.0f, 212.5f));
 
-	sprintf_s(invVal, "%i", this->player->getPlayerInfo().inventory.iron);
+	sprintf_s(invVal, "%i", this->player->GetPlayerInfo().inventory.iron);
 	invString = sf::String(invVal);
 	SetupInventoryEntry(&inventoryEntry2, sf::Vector2f(180.0f, 25.0f), 310.0f, 240.0f, &textIron, "Iron: " + invString, sf::Vector2f(315.0f, 242.5f));
 
-	sprintf_s(invVal, "%i", this->player->getPlayerInfo().inventory.carbon);
+	sprintf_s(invVal, "%i", this->player->GetPlayerInfo().inventory.carbon);
 	invString = sf::String(invVal);
 	SetupInventoryEntry(&inventoryEntry3, sf::Vector2f(180.0f, 25.0f), 310.0f, 270.0f, &textCarbon, "Carbon: " + invString, sf::Vector2f(315.0f, 272.5f));
 
-	sprintf_s(invVal, "%i", this->player->getPlayerInfo().inventory.zinc);
+	sprintf_s(invVal, "%i", this->player->GetPlayerInfo().inventory.zinc);
 	invString = sf::String(invVal);
 	SetupInventoryEntry(&inventoryEntry4, sf::Vector2f(180.0f, 25.0f), 310.0f, 300.0f, &textZinc, "Zinc: " + invString, sf::Vector2f(315.0f, 302.5f));
 }
@@ -45,19 +45,19 @@ void InventoryOverlay::Update() {
 	sf::String invString;
 	char invVal[10];
 
-	sprintf_s(invVal, "%i", player->getPlayerInfo().inventory.copper);
+	sprintf_s(invVal, "%i", player->GetPlayerInfo().inventory.copper);
 	invString = sf::String(invVal);
 	textCopper.setString("Copper: " + invString);
 
-	sprintf_s(invVal, "%i", player->getPlayerInfo().inventory.iron);
+	sprintf_s(invVal, "%i", player->GetPlayerInfo().inventory.iron);
 	invString = sf::String(invVal);
 	textIron.setString("Iron: " + invString);
 
-	sprintf_s(invVal, "%i", player->getPlayerInfo().inventory.carbon);
+	sprintf_s(invVal, "%i", player->GetPlayerInfo().inventory.carbon);
 	invString = sf::String(invVal);
 	textCarbon.setString("Carbon: " + invString);
 
-	sprintf_s(invVal, "%i", player->getPlayerInfo().inventory.zinc);
+	sprintf_s(invVal, "%i", player->GetPlayerInfo().inventory.zinc);
 	invString = sf::String(invVal);
 	textZinc.setString("Zinc: " + invString);
 }

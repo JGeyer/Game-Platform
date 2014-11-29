@@ -39,4 +39,14 @@ class ContactHandler {
 			player->DecrementHealth(damage);
 			player->Knockback(enemy->GetBody()->GetPosition());
 		}
+
+		void BulletMadeImpact(ContactUserData* bulletData, ContactUserData* otherData) {
+			Bullet* bullet = static_cast<Bullet*>(bulletData->data);
+			bullet->SetIsDead(true);
+
+			if (otherData->type == ContactUserData::Type::ENEMY) {
+				Enemy* enemy = static_cast<Enemy*>(otherData->data);
+				enemy->DecrementHealth(bullet->GetDamage());
+			}
+		}
 };
