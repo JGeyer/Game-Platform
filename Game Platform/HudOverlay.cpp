@@ -3,7 +3,7 @@
 HudOverlay::HudOverlay(Player* player) {
 	this->player = player;
 
-	font.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Fonts/Arial.ttf");
+	font.loadFromFile("Assets/Fonts/Arial.ttf");
 
 	InitializeText(&healthText, 16, sf::Text::Bold, 20.0f, 500.0f);
 	InitializeBar(&healthBarOutline, sf::Vector2f(100.0f, 20.0f), sf::Color::White, sf::Color::Black, 3.0, 60.0f, 500.0f);

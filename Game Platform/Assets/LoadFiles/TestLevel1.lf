@@ -1,8 +1,8 @@
 Load=[path][texture]
-[C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/]
+[Assets/Textures/]
 
 Load=[path][music]
-[C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Music/]
+[Assets/Music/]
 
 Load=[texture]
 [groundL][groundL.png]

@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 	App.setMouseCursorVisible(true);
 	
 	/** Load All Level Creation Paths **/
-	char* lfFilename = "C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/LoadFiles/LevelList.lf";
+	char* lfFilename = "Assets/LoadFiles/LevelList.lf";
 	std::vector<std::vector<std::string>> attributes, contents;
 	std::vector<char*> levelPaths;
 	FileManager::Instance().LoadContent(lfFilename, attributes, contents);

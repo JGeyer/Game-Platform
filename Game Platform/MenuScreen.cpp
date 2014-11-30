@@ -5,27 +5,27 @@ MenuScreen::MenuScreen() {
 	sScreenState = ScreenState::SecondaryState::NONE;
 	menuState = MenuScreen::MenuState::PLAY;
 
-	textureInit.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/initializing.png");
+	textureInit.loadFromFile("Assets/Textures/initializing.png");
 	spriteInit.setTexture(textureInit);
 	spriteInit.setColor(sf::Color(255, 255, 255, 255));
 	spriteInit.setPosition(0.0f, 0.0f);
 
-	textureLeft.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/left_half_animation.png");
+	textureLeft.loadFromFile("Assets/Textures/left_half_animation.png");
 	spriteLeft.setTexture(textureLeft);
 	spriteLeft.setColor(sf::Color(255, 255, 255, 255));
 	spriteLeft.setPosition(-400.0f, 0.0f);
 
-	textureRight.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/right_half_animation.png");
+	textureRight.loadFromFile("Assets/Textures/right_half_animation.png");
 	spriteRight.setTexture(textureRight);
 	spriteRight.setColor(sf::Color(255, 255, 255, 255));
 	spriteRight.setPosition(800.0f, 0.0f);
 	
-	textureArrow.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/arrow.png");
+	textureArrow.loadFromFile("Assets/Textures/arrow.png");
 	spriteArrow.setTexture(textureArrow);
 	spriteArrow.setColor(sf::Color(255, 255, 255, 255));
 	spriteArrow.setPosition(133.0f, 217.0f);
 
-	font.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Fonts/Arial.ttf");
+	font.loadFromFile("Assets/Fonts/Arial.ttf");
 
 	uxSelect_Play.setFont(font);
     uxSelect_Play.setCharacterSize(20);
@@ -76,7 +76,7 @@ ScreenState::PrimaryState MenuScreen::Run(sf::RenderWindow &App) {
 	CloseAnimation(App);
 
 	/** Set Song **/
-	SetMusic("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Music/Menu.ogg");
+	SetMusic("Assets/Music/Menu.ogg");
 	screenSong->play();
 
 	while (App.isOpen()) {

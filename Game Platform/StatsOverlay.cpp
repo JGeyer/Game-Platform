@@ -3,7 +3,7 @@
 StatsOverlay::StatsOverlay(Player* player) : BaseOverlay() {
 	this->player = player;
 
-	font.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Fonts/Arial.ttf");
+	font.loadFromFile("Assets/Fonts/Arial.ttf");
 
 	statOutline.setSize(sf::Vector2f(200.0f, 100.0f));
 	statOutline.setFillColor(sf::Color(0, 0, 0, 100));

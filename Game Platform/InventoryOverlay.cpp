@@ -3,7 +3,7 @@
 InventoryOverlay::InventoryOverlay(Player* player) : BaseOverlay() {
 	this->player = player;
 
-	font.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Fonts/Arial.ttf");
+	font.loadFromFile("Assets/Fonts/Arial.ttf");
 
 	inventoryOutline.setSize(sf::Vector2f(200.0f, 150.0f));
 	inventoryOutline.setFillColor(sf::Color(0, 0, 0, 100));

@@ -247,7 +247,7 @@ void GameScreen::InputShooting(Player* player) {
 	bullet->Initialize(world, b2Vec2(x, y), direction, 20.0f, player->GetPlayerInfo().damage);
 
 	sf::Texture textureBullet;
-	textureBullet.loadFromFile("C:/Users/Jeff/Documents/GitHub/Game-Platform/Game Platform/Assets/Textures/bullet.png");
+	textureBullet.loadFromFile("Assets/Textures/bullet.png");
 	bullet->LoadContent(textureBullet, b2Vec2(2.5f / 30.0f,  2.5f / 30.0f));
 	bullets.push_back(bullet);
 }
