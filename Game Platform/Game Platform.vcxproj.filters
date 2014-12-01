@@ -409,10 +409,10 @@
     <None Include="Assets\Music\Menu.ogg">
       <Filter>Resource Files\Assets\Music</Filter>
     </None>
-    <None Include="LevelList.lf">
+    <None Include="Assets\LoadFiles\TestLevel1.lf">
       <Filter>Resource Files\Assets\LoadFiles</Filter>
     </None>
-    <None Include="Assets\LoadFiles\TestLevel1.lf">
+    <None Include="Assets\LoadFiles\LevelList.lf">
       <Filter>Resource Files\Assets\LoadFiles</Filter>
     </None>
   </ItemGroup>

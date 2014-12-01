@@ -11,8 +11,7 @@ class Material : public Consumable {
 
 		MaterialData::material_type mat_type;
 
-		void Initialize(b2World& world, b2BodyType type, b2Vec2 position, 
-						b2Vec2 size, float density, float friction, MaterialData::material_type mat_type);
+		void Initialize(b2World& world, b2BodyType type, b2Vec2 position, b2Vec2 size, MaterialData::material_type mat_type);
 
 	private:
 		b2PolygonShape shape;

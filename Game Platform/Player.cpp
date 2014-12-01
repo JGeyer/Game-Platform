@@ -2,7 +2,7 @@
 
 Player::Player() : Entity() {
 	this->type = EntityData::entity_type::PLAYER;
-	direction = Direction::LEFT;
+	direction = Direction::RIGHT;
 
 	hasControl = 0;
 	hasImmunity = 0;

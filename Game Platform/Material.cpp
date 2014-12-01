@@ -6,14 +6,13 @@ Material::Material() : Consumable() {
 	mat_type = MaterialData::material_type::NONE;
 }
 
-void Material::Initialize(b2World& world, b2BodyType type, b2Vec2 position,
-						  b2Vec2 size, float density, float friction, MaterialData::material_type mat_type) {
+void Material::Initialize(b2World& world, b2BodyType type, b2Vec2 position, b2Vec2 size, MaterialData::material_type mat_type) {
 	bodyDef.position = position;
 	bodyDef.type = type;
 	body = world.CreateBody(&bodyDef);
 	shape.SetAsBox((size.x / 2) / 30.0f, (size.y / 2) / 30.0f);
-	fixtureDef.density = density;
-	fixtureDef.friction = friction;
+	fixtureDef.density = 1.0f;
+	fixtureDef.friction = 0.7f;
 	fixtureDef.shape = &shape;
 	body->CreateFixture(&fixtureDef);
 	this->mat_type = mat_type; 

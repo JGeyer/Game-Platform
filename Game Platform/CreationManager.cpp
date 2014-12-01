@@ -90,27 +90,30 @@ std::vector<Entity*> CreationManager::GetEntities(b2World &world) {
 }
 
 Object* CreationManager::CreateObject(b2World &world, std::vector<std::string> contents) {
-	sf::Texture texture(TextureManager::Instance().getTexture(contents[11]));
+	sf::Texture texture(TextureManager::Instance().getTexture(contents[2]));
 	if (contents[1].compare("box") == 0) {
 		// Make new box
 		Box* box = new Box();
 		
 		// BodyType static or dynamic? 
 		b2BodyType type;
-		if (contents[10].compare("static") == 0) {
+		if (contents[7].compare("static") == 0) {
 			type = b2_staticBody;
 		}
-		else { //contents[10].compare("dynamic") == 0
+		else { //contents[7].compare("dynamic") == 0
 			type = b2_dynamicBody;
 		}
 
 		// Create and return box
-		box->Initialize(world, type, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f), 
-					   b2Vec2(std::stof(contents[4]), std::stof(contents[5])), std::stof(contents[8]), std::stof(contents[9]));
-		box->LoadContent(texture, b2Vec2(std::stof(contents[6]), std::stof(contents[7])));
+		b2Vec2 size(texture.getSize().x, texture.getSize().y);
+		b2Vec2 half_size(size.x / 2.0f, size.y / 2.0f);
+		box->Initialize(world, type, b2Vec2(std::stof(contents[3]) / 30.0f, std::stof(contents[4]) / 30.0f), 
+					    size, std::stof(contents[5]), std::stof(contents[6]));
+		box->LoadContent(texture, half_size);
 		return box;
 	}
 	if (contents[1].compare("circle") == 0) {
+		/*TODO: Fix circle code
 		// Make new circle
 		Circle* circle = new Circle();
 		
@@ -127,41 +130,42 @@ Object* CreationManager::CreateObject(b2World &world, std::vector<std::string> c
 		circle->Initialize(world, type, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f),
 						  std::stof(contents[4]), std::stof(contents[7]), std::stof(contents[8]));
 		circle->LoadContent(texture, b2Vec2(std::stof(contents[5]), std::stof(contents[6])));
-		return circle;
+		return circle;*/
 	}
 	//TODO: Proper handle here
 	return NULL;
 }
 
 Consumable* CreationManager::CreateConsumable(b2World &world, std::vector<std::string> contents) {
-	sf::Texture texture(TextureManager::Instance().getTexture(contents[12]));
+	sf::Texture texture(TextureManager::Instance().getTexture(contents[2]));
 	if (contents[1].compare("material") == 0) {
 		Material* material = new Material();
 		b2BodyType type;
-		if (contents[11].compare("static") == 0) {
+		if (contents[6].compare("static") == 0) {
 			type = b2_staticBody;
 		}
-		else { //contents[11].compare("dynamic") == 0
+		else { //contents[6].compare("dynamic") == 0
 			type = b2_dynamicBody;
 		}
 		MaterialData::material_type mat_type;
-		if (contents[10].compare("copper") == 0) {
+		if (contents[5].compare("copper") == 0) {
 			mat_type = MaterialData::material_type::COPPER;
 		}
-		if (contents[10].compare("iron") == 0) {
+		if (contents[5].compare("iron") == 0) {
 			mat_type = MaterialData::material_type::IRON;
 		}
-		if (contents[10].compare("carbon") == 0) {
+		if (contents[5].compare("carbon") == 0) {
 			mat_type = MaterialData::material_type::CARBON;
 		}
-		if (contents[10].compare("zinc") == 0) {
+		if (contents[5].compare("zinc") == 0) {
 			mat_type = MaterialData::material_type::ZINC;
 		}
 
-		material->Initialize(world, type, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f), 
-							 b2Vec2(std::stof(contents[4]), std::stof(contents[5])), std::stof(contents[8]),
-							 std::stof(contents[9]), mat_type);
-		material->LoadContent(texture, b2Vec2(std::stof(contents[6]), std::stof(contents[7])));
+		// Create and return Material
+		b2Vec2 size(texture.getSize().x, texture.getSize().y);
+		b2Vec2 half_size(size.x / 2.0f, size.y / 2.0f);
+		material->Initialize(world, type, b2Vec2(std::stof(contents[3]) / 30.0f, std::stof(contents[4]) / 30.0f),  size, mat_type);
+		material->LoadContent(texture, half_size);
 		return material;
 	}
 	//TODO: Proper handle here
@@ -169,17 +173,19 @@ Consumable* CreationManager::CreateConsumable(b2World &world, std::vector<std::s
 }
 
 Entity* CreationManager::CreateEntity(b2World &world, std::vector<std::string> contents) {
-	sf::Texture texture(TextureManager::Instance().getTexture(contents[6]));
+	sf::Texture texture(TextureManager::Instance().getTexture(contents[2]));
 	if (contents[1].compare("player") == 0) {
 		Player* player = new Player();
-		player->Initialize(world, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f));
-		player->LoadContent(texture, b2Vec2(std::stof(contents[4]), std::stof(contents[5])));
+		b2Vec2 half_size(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+		player->Initialize(world, b2Vec2(std::stof(contents[3]) / 30.0f, std::stof(contents[4]) / 30.0f));
+		player->LoadContent(texture, half_size);
 		return player;
 	}
 	if (contents[1].compare("grunt") == 0) {
 		Enemy* enemy = new Enemy(EnemyInfo::EnemyData::enemy_type::GRUNT, EnemyInfo::EnemyData::enemy_rank::REGULAR);
-		enemy->Initialize(world, b2Vec2(std::stof(contents[2]) / 30.0f, std::stof(contents[3]) / 30.0f));
-		enemy->LoadContent(texture, b2Vec2(std::stof(contents[4]), std::stof(contents[5])));
+		b2Vec2 half_size(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+		enemy->Initialize(world, b2Vec2(std::stof(contents[3]) / 30.0f, std::stof(contents[4]) / 30.0f));
+		enemy->LoadContent(texture, half_size);
 		return enemy;
 	}
 	//TODO: Proper handle here
