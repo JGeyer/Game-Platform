@@ -43,11 +43,7 @@ void Enemy::Initialize(b2World& world, b2Vec2 position) {
 	enemySensorFixture->SetUserData(cud);
 }
 
-void Enemy::Update(sf::Event event) {
-
-}
-
-void Enemy::UpdatePassive() {
+void Enemy::Update() {
 	if (tookDamage > 0) {
 		--tookDamage;
 		if (tookDamage == 0) {

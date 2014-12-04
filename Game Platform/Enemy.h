@@ -7,8 +7,7 @@ class Enemy : public Entity {
 	public:
 		Enemy(EnemyInfo::EnemyData::enemy_type type, EnemyInfo::EnemyData::enemy_rank rank);
 		void Initialize(b2World& world, b2Vec2 position);
-		void Update(sf::Event event);
-		void UpdatePassive();
+		void Update();
 
 		EnemyInfo GetEnemyInfo();
 		void IncrementHealth(int value);

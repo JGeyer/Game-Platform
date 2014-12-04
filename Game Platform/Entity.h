@@ -10,8 +10,7 @@ class Entity : public Cell {
 	public:
 		Entity();
 		virtual void Initialize(b2World& world, b2Vec2 position) {};
-		virtual void Update(sf::Event event) {};
-		virtual void UpdatePassive() {};
+		virtual void Update() {};
 
 		EntityData::entity_type GetType();
 		void SetType(EntityData::entity_type type);

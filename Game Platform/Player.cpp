@@ -1,9 +1,13 @@
 #include "Player.h"
 
 Player::Player() : Entity() {
-	this->type = EntityData::entity_type::PLAYER;
+	type = EntityData::entity_type::PLAYER;
 	direction = Direction::RIGHT;
 
+	leftPressed = false;
+	leftHeld = false;
+	rightPressed = false;
+	rightHeld = false;
 	hasControl = 0;
 	hasImmunity = 0;
 	cPlayerInfo = PlayerInfo();
@@ -38,7 +42,8 @@ void Player::Initialize(b2World& world, b2Vec2 position) {
 	footFixtureDef.isSensor = true;
 
 	fixtureDef.density = 1.0f;
-	fixtureDef.friction = 0.0f;
+	fixtureDef.friction = 0.1f;
+	fixtureDef.restitution = 0.0f;
 	fixtureDef.shape = &shape;
 	body->CreateFixture(&fixtureDef);
 
@@ -55,26 +60,23 @@ void Player::Initialize(b2World& world, b2Vec2 position) {
 	footSensorFixture->SetUserData(cud);
 }
 
-void Player::Update(sf::Event event) {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-		StopMove();
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-		Move(Cell::Direction::LEFT);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-		Move(Cell::Direction::RIGHT);
-	}
-	else {
-		StopMove();
-	}
-	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
-		Jump();
+void Player::Update() {
+	if (hasControl == 0) {
+		if ((leftPressed && rightPressed) || (!leftPressed && !rightPressed)) {
+			StopMove();
+		}
+		else {
+			if (leftPressed) {
+				Move(Cell::Direction::LEFT);
+			}
+			if (rightPressed) {
+				Move(Cell::Direction::RIGHT);
+			}
+		}
 	}
 }
 
-void Player::UpdatePassive() {
+void Player::UpdatePassives() {
 	if (hasImmunity > 0) {
 		--hasImmunity;
 		if (hasImmunity == 0) {
@@ -92,29 +94,57 @@ void Player::UpdatePassive() {
 	}
 }
 
-void Player::Move(Cell::Direction direction) {
-	if (hasControl == 0) {
-		this->direction = direction;
-		float impulse_x = 0.0f;
-		float desiredVel = 0.0f;
-
-		float mass = body->GetMass();
-		b2Vec2 vel = body->GetLinearVelocity();
-
-		// X Velocity Impulse Calculation
-		if (direction == Cell::Direction::LEFT) {
-			sprite.setScale(-1, 1);
-			desiredVel = -cPlayerInfo.movement_speed;
+void Player::SetLeftPressed(bool state) {
+	if (state) {
+		if (leftPressed) {
+			leftHeld = true;
 		}
-		if (direction == Cell::Direction::RIGHT) {
-			sprite.setScale(1, 1);
-			desiredVel = cPlayerInfo.movement_speed;
+		else {
+			leftPressed = true;
 		}
-		float velChange = desiredVel - vel.x;
-		impulse_x = mass * velChange;
-
-		body->ApplyLinearImpulse(b2Vec2(impulse_x, 0.0f), body->GetWorldCenter(), true);
 	}
+	else {
+		leftPressed = false;
+		leftHeld = false;
+	}
+}
+
+void Player::SetRightPressed(bool state) {
+	if (state) {
+		if (rightPressed) {
+			rightHeld = true;
+		}
+		else {
+			rightPressed = true;
+		}
+	}
+	else {
+		rightPressed = false;
+		rightHeld = false;
+	}
+}
+
+void Player::Move(Cell::Direction direction) {
+	this->direction = direction;
+	float impulse_x = 0.0f;
+	float desiredVel = 0.0f;
+
+	float mass = body->GetMass();
+	b2Vec2 vel = body->GetLinearVelocity();
+
+	// X Velocity Impulse Calculation
+	if (direction == Cell::Direction::LEFT && leftPressed) {
+		sprite.setScale(-1, 1);
+		desiredVel = -cPlayerInfo.movement_speed;
+	}
+	if (direction == Cell::Direction::RIGHT && rightPressed) {
+		sprite.setScale(1, 1);
+		desiredVel = cPlayerInfo.movement_speed;
+	}
+	float velChange = desiredVel - vel.x;
+	impulse_x = mass * velChange;
+
+	body->ApplyLinearImpulse(b2Vec2(impulse_x, 0.0f), body->GetWorldCenter(), true);
 }
 
 void Player::StopMove() {

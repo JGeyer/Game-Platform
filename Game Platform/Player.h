@@ -8,10 +8,13 @@ class Player : public Entity {
 	public:
 		Player();
 		void Initialize(b2World& world, b2Vec2 position);
-		void Update(sf::Event event);
-		void UpdatePassive();
+		void Update();
+		void UpdatePassives();
 
-		void Move(Entity::Direction direction);
+		void SetLeftPressed(bool state);
+		void SetRightPressed(bool state);
+
+		void Move(Cell::Direction direction);
 		void StopMove();
 		void Jump();
 
@@ -29,6 +32,7 @@ class Player : public Entity {
 		void AddResource(MaterialData::material_type material_type, int value);
 		
 	private:
+		bool leftPressed, leftHeld, rightPressed, rightHeld;
 		int hasControl, hasImmunity;
 		b2PolygonShape shape;
 		PlayerInfo cPlayerInfo;

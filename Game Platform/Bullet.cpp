@@ -27,7 +27,7 @@ void Bullet::Initialize(b2World& world, b2Vec2 position, Cell::Direction directi
 	bulletSensorFixture->SetUserData(cud);
 }
 
-void Bullet::Update(sf::Event event) {
+void Bullet::Update() {
 	float mass = body->GetMass();
 	b2Vec2 vel = body->GetLinearVelocity();
 	if (direction == Cell::Direction::LEFT) {

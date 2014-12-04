@@ -70,6 +70,8 @@ ScreenState::PrimaryState GameScreen::Run(sf::RenderWindow &App) {
 
 	// Generate Player & Overlays
 	Player* player = static_cast<Player*>(entities.at(0));
+	player->SetMovementSpeed(9.0f);
+	player->SetJumpSpeed(18.0f);
 	inventory = new InventoryOverlay(player);
 	stats = new StatsOverlay(player);
 	hud = new HudOverlay(player);
@@ -101,11 +103,12 @@ ScreenState::PrimaryState GameScreen::Run(sf::RenderWindow &App) {
 		if (!isPaused) {
 			// Update Passives on Entities
 			for (std::vector<Entity*>::iterator eit = entities.begin(); eit != entities.end(); ++eit) {
-				(*eit)->UpdatePassive();
+				(*eit)->Update();
 			}
+			player->UpdatePassives();
 			// Update Onscreen Bullets
 			for (std::vector<Bullet*>::iterator bit = bullets.begin(); bit != bullets.end(); ++bit) {
-				(*bit)->Update(event);
+				(*bit)->Update();
 			}
 			// Update Overlays (excluding pause)
 			hud->Update();
@@ -151,6 +154,14 @@ ScreenState::PrimaryState GameScreen::HandleInput(sf::RenderWindow &App, sf::Eve
 	if (event.type == sf::Event::Closed) {
 		return ScreenState::PrimaryState::EXITED;
 	}
+	if (event.type == sf::Event::KeyReleased) {
+		if (event.key.code == sf::Keyboard::Key::A) {
+			player->SetLeftPressed(false);
+		}
+		if (event.key.code == sf::Keyboard::Key::D) {
+			player->SetRightPressed(false);
+		}
+	}
 	if (event.type == sf::Event::KeyPressed) {
 		if (isPaused) {
 			sScreenState = pause->Update(event);
@@ -180,11 +191,16 @@ ScreenState::PrimaryState GameScreen::HandleInput(sf::RenderWindow &App, sf::Eve
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
 				InputShooting(player);
 			}
-			player->Update(event);
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+				player->SetLeftPressed(true);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+				player->SetRightPressed(true);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
+				player->Jump();
+			}
 		}
-	}
-	if (event.type == sf::Event::KeyReleased && !isPaused) {
-		player->Update(event);
 	}
 	return ScreenState::PrimaryState::GAME_RUNNING;
 }

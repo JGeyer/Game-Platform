@@ -105,7 +105,7 @@ Object* CreationManager::CreateObject(b2World &world, std::vector<std::string> c
 		}
 
 		// Create and return box
-		b2Vec2 size(texture.getSize().x, texture.getSize().y);
+		b2Vec2 size(texture.getSize().x / 1.0f, texture.getSize().y / 1.0f);
 		b2Vec2 half_size(size.x / 2.0f, size.y / 2.0f);
 		box->Initialize(world, type, b2Vec2(std::stof(contents[3]) / 30.0f, std::stof(contents[4]) / 30.0f), 
 					    size, std::stof(contents[5]), std::stof(contents[6]));
@@ -162,7 +162,7 @@ Consumable* CreationManager::CreateConsumable(b2World &world, std::vector<std::s
 		}
 
 		// Create and return Material
-		b2Vec2 size(texture.getSize().x, texture.getSize().y);
+		b2Vec2 size(texture.getSize().x / 1.0f, texture.getSize().y / 1.0f);
 		b2Vec2 half_size(size.x / 2.0f, size.y / 2.0f);
 		material->Initialize(world, type, b2Vec2(std::stof(contents[3]) / 30.0f, std::stof(contents[4]) / 30.0f),  size, mat_type);
 		material->LoadContent(texture, half_size);
