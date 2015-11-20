@@ -1,10 +1,35 @@
-﻿Build started 03/12/2014 6:00:01 PM.
-     1>Project "C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\Game Platform.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/20/2015 3:24:54 AM.
+     1>Project "D:\GitHub\Game-Platform\Game Platform\Game Platform.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I.\ /Zi /nologo /W3 /WX- /Od /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt GameScreen.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I"SFML-2.3.2/include/" /I./ /ZI /nologo /W3 /WX- /Od /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Bullet.cpp CameraManager.cpp Cell.cpp Consumable.cpp Enemy.cpp Entity.cpp GameScreen.cpp HudOverlay.cpp InventoryOverlay.cpp CreationManager.cpp Material.cpp MenuScreen.cpp Box.cpp Circle.cpp Convert.cpp FileManager.cpp main.cpp MusicManager.cpp Object.cpp PauseOverlay.cpp Player.cpp StatsOverlay.cpp TextureManager.cpp
+         TextureManager.cpp
+         StatsOverlay.cpp
+         Player.cpp
+         PauseOverlay.cpp
+         Object.cpp
+         MusicManager.cpp
+         main.cpp
+         FileManager.cpp
+         Convert.cpp
+         Circle.cpp
+         Box.cpp
+         MenuScreen.cpp
+         Material.cpp
+         CreationManager.cpp
+         InventoryOverlay.cpp
+         HudOverlay.cpp
          GameScreen.cpp
+         Entity.cpp
+         Enemy.cpp
+         Consumable.cpp
+         Generating Code...
+         Compiling...
+         Cell.cpp
+         CameraManager.cpp
+         Bullet.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jeff\Documents\GitHub\Game-Platform\x64\Debug\Game Platform.exe" /INCREMENTAL /NOLOGO /LIBPATH:".\lib\VS 11\Debug" Box2D.lib "sfml-audio-s-d.lib" "sfml-graphics-s-d.lib" "sfml-window-s-d.lib" "sfml-system-s-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jeff\Documents\GitHub\Game-Platform\x64\Debug\Game Platform.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jeff\Documents\GitHub\Game-Platform\x64\Debug\Game Platform.lib" /MACHINE:X64 /ignore:4099 x64\Debug\Bullet.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Game-Platform\x64\Debug\Game Platform.exe" /INCREMENTAL /NOLOGO /LIBPATH:"lib/VS 14/Debug/" /LIBPATH:"SFML-2.3.2/lib/" Box2D.lib "sfml-system-s-d.lib" winmm.lib "sfml-audio-s-d.lib" openal32.lib flac.lib vorbisenc.lib vorbisfile.lib vorbis.lib ogg.lib "sfml-window-s-d.lib" opengl32.lib gdi32.lib "sfml-graphics-s-d.lib" freetype.lib jpeg.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\GitHub\Game-Platform\x64\Debug\Game Platform.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Game-Platform\x64\Debug\Game Platform.lib" /MACHINE:X64 /ignore:4099 x64\Debug\Bullet.obj
          x64\Debug\CameraManager.obj
          x64\Debug\Cell.obj
          x64\Debug\Consumable.obj
@@ -27,9 +52,9 @@
          x64\Debug\Player.obj
          x64\Debug\StatsOverlay.obj
          x64\Debug\TextureManager.obj
-         Game Platform.vcxproj -> C:\Users\Jeff\Documents\GitHub\Game-Platform\x64\Debug\Game Platform.exe
-     1>Done Building Project "C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\Game Platform.vcxproj" (Build target(s)).
+         Game Platform.vcxproj -> D:\GitHub\Game-Platform\x64\Debug\Game Platform.exe
+     1>Done Building Project "D:\GitHub\Game-Platform\Game Platform\Game Platform.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.35
+Time Elapsed 00:00:15.52

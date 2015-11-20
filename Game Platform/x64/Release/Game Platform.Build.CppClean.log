@@ -1,41 +1,31 @@
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\OBJECT.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\INPUTMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\CIRCLE.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\BOX.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\BASIC.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\MAIN.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\MOVEMENT.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\PLAYER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\VC110.PDB
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\TEXTUREMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\FILEMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\CONVERT.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\RELEASE\OBJECTMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\X64\RELEASE\GAME PLATFORM.EXE
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\X64\RELEASE\GAME PLATFORM.PDB
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\Basic.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\Box.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\Circle.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\Convert.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\FileManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\InputManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\main.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\Movement.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\Object.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\ObjectManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\Player.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\TextureManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\cl.command.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\CL.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\CL.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link.command.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\link.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Release\vc110.pdb
-C:\Users\Jeff\Documents\GitHub\Game-Platform\x64\Release\Game Platform.pdb
-C:\Users\Jeff\Documents\GitHub\Game-Platform\x64\Release\Game Platform.exe
+d:\game dev folder\game-platform-master\game platform\x64\release\vc140.pdb
+d:\game dev folder\game-platform-master\game platform\x64\release\pauseoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\object.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\musicmanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\main.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\filemanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\convert.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\circle.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\box.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\menuscreen.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\material.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\creationmanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\inventoryoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\hudoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\gamescreen.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\entity.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\enemy.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\consumable.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\cell.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\cameramanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\bullet.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\texturemanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\statsoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\release\player.obj
+d:\game dev folder\game-platform-master\x64\release\game platform.pdb
+d:\game dev folder\game-platform-master\game platform\x64\release\game platform.tlog\cl.command.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\release\game platform.tlog\cl.read.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\release\game platform.tlog\cl.write.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\release\game platform.tlog\link.command.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\release\game platform.tlog\link.read.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\release\game platform.tlog\link.write.1.tlog

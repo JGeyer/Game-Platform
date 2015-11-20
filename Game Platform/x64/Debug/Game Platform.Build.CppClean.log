@@ -1,295 +1,36 @@
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\CAMERAMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\ENEMY.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\ENTITY.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\GAMELOOPMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\HUDMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\LEVELMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\MATERIAL.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\OBJECTMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\BOX.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\CIRCLE.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\CONVERT.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\FILEMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\INPUTMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\MAIN.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\OBJECT.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\PLAYER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\TEXTUREMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\VC110.PDB
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\CONSUMABLE.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\CONSUMABLEMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\ENTITYMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\CELL.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\MUSICMANAGER.OBJ
-C:\USERS\JEFF\DOCUMENTS\GITHUB\GAME-PLATFORM\GAME PLATFORM\X64\DEBUG\GAMESCREEN.OBJ
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Box.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\CameraManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Cell.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Circle.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Consumable.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\ConsumableManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Convert.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Enemy.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Entity.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\EntityManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\FileManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\GameloopManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\GameScreen.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\HudManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\InputManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\LevelManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\main.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Material.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\MusicManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Object.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\ObjectManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\Player.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\TextureManager.obj
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\cl.command.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\CL.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\CL.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1418880-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1418880-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1418880-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1418880-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1418880.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1418880.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1418880.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420244-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420244-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420244-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420244-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420244.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420244.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420244.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420376-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420376-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420376-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420376-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420376.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420376.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420376.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420908-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420908-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420908-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420908-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420908.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420908.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1420908.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421308-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421308-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421308-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421308-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421308.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421308.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421308.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421624-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421624-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421624-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421624-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421624.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421624.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1421624.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422080-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422080-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422080-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422080-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422080.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422080.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422080.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422892-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422892-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422892-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422892-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422892.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422892.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1422892.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1423232-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1423232-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1423232-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1423232-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1423232.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1423232.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1423232.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426416-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426416-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426416-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426416-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426416.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426416.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426416.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426696-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426696-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426696-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426696-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426696.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426696.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1426696.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1427900-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1427900-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1427900-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1427900-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1427900.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1427900.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428084-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428084-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428084-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428084-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428084.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428084.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428084.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428680-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428680-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428680-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428680-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428680.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428680.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1428680.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1434440-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1434440-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1434440-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1434440-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1434440.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1434440.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1434440.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438808-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438808-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438808-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438808-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438808.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438808.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438808.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438848-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438848-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438848-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438848-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438848.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438848.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438848.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438896-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438896-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438896-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438896-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438896.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438896.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438896.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438952-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438952-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438952-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438952-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438952.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438952.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1438952.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439264-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439264-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439264-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439264-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439264.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439264.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439264.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439580-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439580-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439580-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439580-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439580.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1439580.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1440544-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1440544-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1440544-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1440544-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1440544.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1440544.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1440544.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441128-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441128-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441128-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441128-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441128.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441128.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441128.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441672-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441672-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441672-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441672-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441672.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441672.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1441672.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1442568-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1442568-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1442568-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1442568-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1442568.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1442568.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1442568.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1483576-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1483576-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1483576-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1483576-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1483576.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1483576.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1483576.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1512404-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1512404-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1512404-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1512404-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1512404.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1512404.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1512404.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1536900-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1536900-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1536900-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1536900-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1536900.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1536900.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1536900.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538464-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538464-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538464-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538464-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538464.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538464.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538464.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538896-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538896-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538896-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538896-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538896.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538896.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1538896.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1539704-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1539704-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1539704-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1539704-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1539704.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1539704.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1539704.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1540284-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1540284-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1540284-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1540284-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1540284.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1540284.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1540284.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1549852-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1549852-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1549852-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1549852-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1549852.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1549852.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1553584-cvtres.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1553584-cvtres.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1553584-rc.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1553584-rc.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1553584.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.1553584.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.command.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.read.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.read.2.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\link.write.1.tlog
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\vc110.idb
-C:\Users\Jeff\Documents\GitHub\Game-Platform\Game Platform\x64\Debug\vc110.pdb
-C:\Users\Jeff\Documents\GitHub\Game-Platform\x64\Debug\Game Platform.pdb
+d:\game dev folder\game-platform-master\game platform\x64\debug\vc140.pdb
+d:\game dev folder\game-platform-master\game platform\x64\debug\vc140.idb
+d:\game dev folder\game-platform-master\game platform\x64\debug\consumable.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\enemy.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\entity.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\gamescreen.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\hudoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\inventoryoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\creationmanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\material.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\menuscreen.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\box.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\circle.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\convert.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\filemanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\main.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\musicmanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\object.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\pauseoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\player.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\statsoverlay.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\texturemanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\bullet.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\cameramanager.obj
+d:\game dev folder\game-platform-master\game platform\x64\debug\cell.obj
+d:\game dev folder\game-platform-master\x64\debug\game platform.pdb
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\cl.command.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\cl.read.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\cl.write.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\link-cvtres.read.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\link-cvtres.write.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\link-rc.read.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\link-rc.write.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\link.command.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\link.read.1.tlog
+d:\game dev folder\game-platform-master\game platform\x64\debug\game platform.tlog\link.write.1.tlog
